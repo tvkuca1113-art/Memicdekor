@@ -1,0 +1,202 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  background: #141618;
+  color: #ffffff;
+}
+
+.media,
+.image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.media {
+  z-index: -2;
+}
+
+.image {
+  object-fit: cover;
+  object-position: 72% 50%;
+}
+
+/* Tamni gradijent ispod teksta; desni dio fotografije (keramičko ostrvo) ostaje svijetao. */
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(14, 15, 16, 0.55) 0%, rgba(14, 15, 16, 0.2) 60%, rgba(14, 15, 16, 0) 100%),
+    linear-gradient(
+      180deg,
+      rgba(14, 15, 16, 0.74) 0%,
+      rgba(14, 15, 16, 0.64) 58%,
+      rgba(14, 15, 16, 0.4) 82%,
+      rgba(14, 15, 16, 0.3) 100%
+    );
+}
+
+.content {
+  position: relative;
+  padding-block: 40px 32px;
+}
+
+.eyebrow {
+  margin-bottom: 16px;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Prijelom kao u smjernici („Keramika po / mjeri vašeg / prostora.”) određuje širina kolone. */
+.title {
+  max-width: 7.6em;
+  font-size: var(--fs-display);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  text-wrap: wrap;
+}
+
+.lead {
+  max-width: 22em;
+  margin-top: 18px;
+  color: rgba(255, 255, 255, 0.94);
+  font-size: clamp(1.0625rem, 0.95rem + 0.6vw, 1.5rem);
+  line-height: 1.5;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.primary {
+  min-height: 54px;
+}
+
+/* Na mobitelu je sekundarna radnja tekstualni link s dovoljnom dodirnom površinom. */
+.secondary {
+  align-self: flex-start;
+  justify-content: flex-start;
+  min-height: 48px;
+  padding-inline: 0;
+  border-color: transparent;
+  background: transparent;
+}
+
+.secondary:hover {
+  --btn-bg: transparent;
+  --btn-fg: #ffffff;
+  --btn-border: transparent;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.note {
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: var(--fs-caption);
+  line-height: 1.4;
+}
+
+@media (min-width: 560px) {
+  .primary {
+    align-self: flex-start;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero {
+    display: flex;
+    align-items: center;
+    min-height: clamp(580px, 74vh, 720px);
+  }
+
+  .image {
+    object-position: 64% 50%;
+  }
+
+  .scrim {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(14, 15, 16, 0.86) 0%,
+        rgba(14, 15, 16, 0.78) 34%,
+        rgba(14, 15, 16, 0.5) 62%,
+        rgba(14, 15, 16, 0.12) 86%,
+        rgba(14, 15, 16, 0) 100%
+      ),
+      linear-gradient(0deg, rgba(14, 15, 16, 0.4) 0%, rgba(14, 15, 16, 0) 35%);
+  }
+
+  .content {
+    padding-block: 80px 64px;
+  }
+
+  .eyebrow {
+    margin-bottom: 20px;
+  }
+
+  .lead {
+    margin-top: 24px;
+  }
+
+  .actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    margin-top: 36px;
+  }
+
+  .primary,
+  .secondary {
+    min-height: 58px;
+    padding-inline: 30px;
+  }
+
+  .secondary {
+    --btn-border: rgba(255, 255, 255, 0.86);
+    align-self: auto;
+    justify-content: center;
+    border-color: var(--btn-border);
+  }
+
+  .secondary:hover {
+    --btn-bg: #ffffff;
+    --btn-fg: var(--c-ink);
+    --btn-border: #ffffff;
+    text-decoration: none;
+  }
+
+  .secondaryIcon {
+    display: none;
+  }
+
+  .note {
+    margin-top: 28px;
+  }
+}
+
+@media (min-width: 1080px) {
+  .scrim {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(14, 15, 16, 0.84) 0%,
+        rgba(14, 15, 16, 0.72) 30%,
+        rgba(14, 15, 16, 0.36) 50%,
+        rgba(14, 15, 16, 0.06) 68%,
+        rgba(14, 15, 16, 0) 100%
+      ),
+      linear-gradient(0deg, rgba(14, 15, 16, 0.36) 0%, rgba(14, 15, 16, 0) 32%);
+  }
+}

@@ -1,0 +1,51 @@
+[
+  {
+    "file": "public/brand/memic-dekor-logo.png",
+    "width": 520,
+    "height": 96,
+    "format": "png",
+    "sha256": "52f68d651511f510"
+  },
+  {
+    "file": "public/brand/memic-dekor-logo-344.webp",
+    "width": 344,
+    "height": 64,
+    "format": "webp",
+    "sha256": "d5790d6eb5d8d17b"
+  },
+  {
+    "file": "public/brand/memic-dekor-logo-520.webp",
+    "width": 520,
+    "height": 96,
+    "format": "webp",
+    "sha256": "be55263e117aeb85"
+  },
+  {
+    "file": "src/app/icon.png",
+    "width": 64,
+    "height": 64,
+    "format": "png",
+    "sha256": "209a59eba7853e74"
+  },
+  {
+    "file": "src/assets/hero/kuhinja-ostrvo-desktop.jpg",
+    "width": 1440,
+    "height": 810,
+    "format": "jpeg",
+    "sha256": "61ac14335825e62a"
+  },
+  {
+    "file": "src/assets/hero/kuhinja-ostrvo-mobitel.jpg",
+    "width": 768,
+    "height": 960,
+    "format": "jpeg",
+    "sha256": "ab43c91fa1ddd827"
+  },
+  {
+    "file": "public/og/memic-dekor.jpg",
+    "width": 1200,
+    "height": 630,
+    "format": "jpeg",
+    "sha256": "df5575f1d5658109"
+  }
+]

@@ -1,0 +1,34 @@
+.frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--photo-aspect, var(--photo-aspect-default, 16 / 9));
+  overflow: hidden;
+  background: var(--c-bg-deep);
+}
+
+.image {
+  object-fit: cover;
+}
+
+.pending {
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background-color: #ece8e1;
+  background-image:
+    linear-gradient(rgba(23, 26, 28, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 26, 28, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-position: center;
+}
+
+.pendingLabel {
+  padding: 6px 10px;
+  background: rgba(247, 245, 241, 0.92);
+  color: var(--c-muted);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-transform: uppercase;
+}

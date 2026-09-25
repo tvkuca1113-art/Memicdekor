@@ -1,0 +1,39 @@
+{
+  "name": "memic-dekor",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "check": "npm run typecheck && npm run lint && npm run test",
+    "assets": "node scripts/prepare-assets.mjs",
+    "photos:fetch": "node scripts/photos.mjs fetch",
+    "photos:add": "node scripts/photos.mjs add",
+    "screenshots": "node scripts/screenshots.mjs"
+  },
+  "dependencies": {
+    "next": "16.3.6",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "1.56.1",
+    "@types/node": "^22.20.4",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.6",
+    "sharp": "^0.35.4",
+    "typescript": "^5",
+    "vitest": "^5.0.2"
+  },
+  "overrides": {
+    "playwright-core": "1.56.1"
+  }
+}

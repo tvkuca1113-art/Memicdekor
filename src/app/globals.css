@@ -1,0 +1,345 @@
+/* Memić Dekor — dizajn sistem: tokeni, osnovna tipografija i zajednički elementi. */
+
+:root {
+  /* Boje */
+  --c-ink: #171a1c;
+  --c-ink-2: #3a3f43;
+  --c-muted: #5b6065;
+  --c-bg: #f7f5f1;
+  --c-bg-deep: #efebe4;
+  --c-surface: #ffffff;
+  --c-line: rgba(23, 26, 28, 0.14);
+  --c-line-strong: rgba(23, 26, 28, 0.32);
+  --c-primary: #0068b5;
+  --c-primary-hover: #00538f;
+  --c-error: #b3261e;
+  --c-error-bg: #fbeeec;
+  --c-success: #1d6b3a;
+  --c-success-bg: #eaf4ed;
+
+  /* Pisma (varijable postavlja next/font u layout.tsx) */
+  --font-sans: var(--font-manrope), system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-serif: var(--font-dm-serif), Georgia, 'Times New Roman', serif;
+
+  /* Tipografska skala */
+  --fs-display: clamp(2.375rem, 1.6rem + 4.8vw, 5.25rem);
+  --fs-h1: clamp(2.375rem, 1.7rem + 3vw, 4rem);
+  --fs-h2: clamp(2rem, 1.45rem + 2.4vw, 3.25rem);
+  --fs-h3: clamp(1.5rem, 1.25rem + 0.9vw, 2rem);
+  --fs-lead: clamp(1.0625rem, 0.98rem + 0.45vw, 1.375rem);
+  --fs-body: 1.0625rem;
+  --fs-small: 0.9375rem;
+  --fs-caption: 0.8125rem;
+
+  /* Raspored */
+  --header-h: 68px;
+  --gutter: clamp(20px, 4vw, 48px);
+  --container: 1280px;
+  --section-y: clamp(64px, 8vw, 112px);
+  --radius: 2px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --fs-body: 1.125rem;
+    --fs-small: 1rem;
+  }
+}
+
+@media (min-width: 1080px) {
+  :root {
+    --header-h: 84px;
+  }
+}
+
+/* Osnova */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--header-h) + 16px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--c-bg);
+  color: var(--c-ink);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-synthesis: none;
+  line-height: 1.08;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+}
+
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--c-primary);
+  outline-offset: 3px;
+}
+
+.on-dark :focus-visible {
+  outline-color: #ffffff;
+}
+
+::selection {
+  background: rgba(0, 104, 181, 0.2);
+}
+
+/* Pomoćne klase */
+
+.container {
+  width: min(100% - 2 * var(--gutter), var(--container));
+  margin-inline: auto;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 200;
+  padding: 12px 18px;
+  background: var(--c-ink);
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-150%);
+}
+
+.skip-link:focus-visible {
+  transform: none;
+  outline-color: var(--c-primary);
+}
+
+/* Cilj linka „Preskoči na sadržaj” nije interaktivan element. */
+#sadrzaj:focus {
+  outline: none;
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+}
+
+.lead {
+  font-size: var(--fs-lead);
+  line-height: 1.55;
+  color: var(--c-ink-2);
+}
+
+/* Dugmad */
+
+.btn {
+  --btn-bg: var(--c-primary);
+  --btn-fg: #ffffff;
+  --btn-border: var(--c-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 12px 26px;
+  border: 1.5px solid var(--btn-border);
+  border-radius: var(--radius);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease;
+}
+
+.btn:hover {
+  --btn-bg: var(--c-primary-hover);
+  --btn-border: var(--c-primary-hover);
+}
+
+.btn[aria-disabled='true'] {
+  cursor: progress;
+}
+
+.btn-outline-light {
+  --btn-bg: transparent;
+  --btn-fg: #ffffff;
+  --btn-border: rgba(255, 255, 255, 0.86);
+}
+
+.btn-outline-light:hover {
+  --btn-bg: #ffffff;
+  --btn-fg: var(--c-ink);
+  --btn-border: #ffffff;
+}
+
+.btn-outline {
+  --btn-bg: transparent;
+  --btn-fg: var(--c-ink);
+  --btn-border: var(--c-line-strong);
+}
+
+.btn-outline:hover {
+  --btn-bg: var(--c-ink);
+  --btn-fg: #ffffff;
+  --btn-border: var(--c-ink);
+}
+
+.btn-sm {
+  min-height: 48px;
+  padding: 10px 20px;
+  font-size: 0.9375rem;
+}
+
+.btn-icon {
+  flex: none;
+  transition: transform 0.18s ease;
+}
+
+.btn:hover .btn-icon,
+.text-link:hover .btn-icon {
+  transform: translateX(3px);
+}
+
+/* Tekstualni link sa strelicom, npr. „Saznajte više” */
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--c-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.text-link-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid currentColor;
+}
+
+.text-link:hover {
+  color: var(--c-primary-hover);
+}
+
+/* Linkovi u tekstu */
+
+.prose a:not(.text-link, .btn),
+.inline-link {
+  color: var(--c-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.prose a:not(.text-link, .btn):hover,
+.inline-link:hover {
+  color: var(--c-primary-hover);
+  text-decoration-thickness: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .btn:hover .btn-icon,
+  .text-link:hover .btn-icon {
+    transform: none;
+  }
+}
