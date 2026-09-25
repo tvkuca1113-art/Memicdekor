@@ -45,7 +45,7 @@ function originalPhoto(entry: Omit<PhotoEntry, 'origin' | 'file' | 'sourceUrl'>)
   return {
     ...entry,
     origin: 'original',
-    sourceUrl: remoteSources[entry.id],
+    sourceUrl: remoteSources[entry.id] ?? file?.source,
     file: file ? { src: file.src, width: file.width, height: file.height } : undefined,
   };
 }
@@ -63,7 +63,7 @@ export const photos = {
     id: 'postolje-grigio-luna',
     alt: 'Postolje za umivaonik izrađeno od keramike Grigio Luna',
     caption: 'Gotov proizvod: postolje za umivaonik od keramike Grigio Luna.',
-    focus: '50% 50%',
+    focus: '50% 76%',
   }),
   digitalniPrint: originalPhoto({
     id: 'digitalni-print',
@@ -90,17 +90,34 @@ export const photos = {
   kuhinjskePloce: originalPhoto({
     id: 'kuhinjske-ploce',
     alt: 'Kuhinjska ploča od keramike izrađena po mjeri',
-    caption: 'Kuhinjske ploče i stolovi',
+    caption: 'Kuhinjsko ostrvo, radna ploča i zidna obloga.',
+    credit: 'Memić Dekor · saradnja s Modimexom',
   }),
-  gazista: originalPhoto({
-    id: 'gazista',
-    alt: 'Keramička gazišta za stepenice izrađena po mjeri',
-    caption: 'Gazišta i okapnice',
+  dnevniBoravak: originalPhoto({
+    id: 'dnevni-boravak',
+    alt: 'Keramičke ploče na dva stolića u dnevnom boravku',
+    caption: 'Keramičke ploče za stolove u dnevnom boravku.',
   }),
-  mozaici: originalPhoto({
-    id: 'mozaici',
-    alt: 'Zidni mozaik složen od rezane keramike',
-    caption: 'Mozaici',
+  stolSequoia: originalPhoto({
+    id: 'stol-sequoia',
+    alt: 'Trpezarijski stol obložen keramikom Marble Sequoia uz zelene stolice',
+    caption: 'Stol i komoda obloženi keramikom Marble Sequoia.',
+    credit: 'Memić Dekor · konstrukcija Modimex',
+  }),
+  kuhinjaCrema: originalPhoto({
+    id: 'kuhinja-crema',
+    alt: 'Kuhinja s radnom pločom i zidnom oblogom od keramike Pietra Antica Crema',
+    caption: 'Kuhinja u keramici Pietra Antica Crema.',
+  }),
+  kupatilo: originalPhoto({
+    id: 'kupatilo-salon',
+    alt: 'Uređeno kupatilo s keramičkim oblogama u salonu Memić Dekor',
+    caption: 'Keramika i oprema za kupatilo u našem salonu.',
+  }),
+  sanitarije: originalPhoto({
+    id: 'sanitarije-salon',
+    alt: 'Izloženi tuševi i slavine u salonu Memić Dekor',
+    caption: 'Detalji sanitarne opreme u salonu.',
   }),
 } satisfies Record<string, PhotoEntry>;
 
@@ -113,4 +130,11 @@ export function photoCaption(photo: PhotoEntry): string | undefined {
 }
 
 /** Fotografije za sekciju „Detalji iz ponude i izrade” (salon ima vlastitu sekciju). */
-export const detailGallery: PhotoKey[] = ['umivaonici', 'kuhinjskePloce', 'gazista', 'mozaici'];
+export const detailGallery: PhotoKey[] = ['stolSequoia', 'umivaonici', 'kuhinjskePloce', 'postolje'];
+
+export const galleryCopy = {
+  eyebrow: 'Iz naših projekata',
+  title: 'Keramika koja oblikuje prostor.',
+  lead: 'Stvarne fotografije naše izrade: kuhinjske površine, keramički stolovi i umivaonici po mjeri.',
+  sourceLabel: 'Pogledajte originalnu objavu',
+};

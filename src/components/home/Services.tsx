@@ -12,9 +12,9 @@ export function Services() {
       <div className="container">
         <SectionHeading id="usluge-naslov" eyebrow="Naše usluge" title="Od ideje do izrade." />
         <ul className={styles.grid}>
-          {services.map((service) => (
+          {services.map((service, index) => (
             <li key={service.id} className={styles.item}>
-              <h3 className={styles.title}>{service.title}</h3>
+              <h3 className={styles.title}><span className={styles.number} aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>{service.title}</h3>
               <Photo
                 photo={photos[service.photo]}
                 aspect="16 / 9"

@@ -1,95 +1,19 @@
 .section {
   padding-block: var(--section-y);
-  border-top: 1px solid var(--c-line);
+  background: var(--c-bg-deep);
 }
-
-.layout {
-  display: grid;
-}
-
-.list {
-  border-top: 1px solid var(--c-line-strong);
-  list-style: none;
-}
-
-.row {
-  display: grid;
-  grid-template-columns: 36px minmax(0, 1fr);
-  gap: 8px 16px;
-  padding-block: 28px;
-  border-bottom: 1px solid var(--c-line);
-}
-
-.index {
-  padding-top: 10px;
-  color: var(--c-muted);
-  font-size: var(--fs-caption);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-}
-
-.body {
-  display: grid;
-  gap: 10px;
-}
-
-.title {
-  font-size: clamp(1.75rem, 1.3rem + 1.8vw, 2.75rem);
-}
-
-.text {
-  max-width: 44ch;
-  color: var(--c-ink-2);
-}
-
-.links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0 28px;
-  list-style: none;
-}
-
-.link {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  min-height: 44px;
-  color: var(--c-primary);
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.link:hover {
-  color: var(--c-primary-hover);
-  text-decoration: underline;
-  text-underline-offset: 5px;
-}
-
-@media (min-width: 1080px) {
-  .layout {
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    gap: 64px;
-    align-items: start;
-  }
-
-  .heading {
-    position: sticky;
-    top: calc(var(--header-h) + 40px);
-    margin-bottom: 0;
-  }
-
-  .row {
-    grid-template-columns: 56px minmax(0, 1fr);
-    padding-block: 36px;
-  }
-
-  .body {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
-    column-gap: 40px;
-    align-items: start;
-  }
-
-  .title {
-    grid-row: span 2;
-  }
+.layout { display: grid; }
+.list { display: grid; gap: 40px; list-style: none; }
+.row { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 18px 12px; align-content: start; }
+.photo { grid-column: 1 / -1; }
+.index { padding-top: 8px; color: var(--c-primary); font-size: var(--fs-caption); letter-spacing: .08em; }
+.body { display: grid; gap: 12px; }
+.title { font-size: clamp(1.75rem, 1.4rem + 1vw, 2.4rem); }
+.text { color: var(--c-ink-2); font-size: var(--fs-small); }
+.links { display: grid; list-style: none; }
+.link { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: var(--c-primary); font-size: var(--fs-small); font-weight: 600; text-decoration: none; }
+.link:hover { text-decoration: underline; text-underline-offset: 5px; }
+@media (min-width: 768px) {
+  .list { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 28px; }
+  .photo { --photo-aspect: 4 / 5; }
 }

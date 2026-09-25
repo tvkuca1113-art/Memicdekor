@@ -1,1 +1,90 @@
-{}
+{
+  "digitalni-print": {
+    "src": "/images/originali/digitalni-print.jpg",
+    "width": 783,
+    "height": 400,
+    "sha256": "f701079a9181124d117f04a723a6f31c0ccddd89eb7e7010de1c207b46848955",
+    "source": "https://memic.ba/wp-content/uploads/2024/12/slika-1.jpg",
+    "addedAt": "2026-09-25T21:48:08.734Z"
+  },
+  "dnevni-boravak": {
+    "src": "/images/originali/dnevni-boravak.jpg",
+    "width": 1080,
+    "height": 1350,
+    "sha256": "e55414d5cbc889440fd6baeb9bd521fe4419222177d87076d4ceeeeecd08dafe",
+    "source": "https://www.instagram.com/memicdekor_/p/DIie35LsyGg/",
+    "addedAt": "2026-09-25T21:48:13.617Z"
+  },
+  "kuhinja-crema": {
+    "src": "/images/originali/kuhinja-crema.jpg",
+    "width": 1200,
+    "height": 900,
+    "sha256": "4a289000655ed7145909867b9c39ac85008eb5d0160d1e813614712cdd484ecd",
+    "source": "https://www.instagram.com/memicdekor_/p/DX6VNhZjHix/",
+    "addedAt": "2026-09-25T21:48:14.739Z"
+  },
+  "kuhinjske-ploce": {
+    "src": "/images/originali/kuhinjske-ploce.jpg",
+    "width": 1080,
+    "height": 1350,
+    "sha256": "2bf0ffae528bac46086537911c8e59f6051b7dfad6f981cc24fd956a41d33f71",
+    "source": "https://www.instagram.com/memicdekor_/p/DIs4M6iMDSX/",
+    "addedAt": "2026-09-25T21:48:12.999Z"
+  },
+  "kupatilo-salon": {
+    "src": "/images/originali/kupatilo-salon.jpg",
+    "width": 2400,
+    "height": 1800,
+    "sha256": "f617c054cf6008ea10249fd112320db434a93cb35977368a02a0460c5073c71a",
+    "source": "https://memic.ba/",
+    "addedAt": "2026-09-25T21:48:11.168Z"
+  },
+  "postolje-grigio-luna": {
+    "src": "/images/originali/postolje-grigio-luna.jpg",
+    "width": 1920,
+    "height": 2560,
+    "sha256": "3aff55756d7d148675168dcc85c3e1133e5a27f857aa65ec08f7f1be92323569",
+    "source": "https://memic.ba/wp-content/uploads/2024/12/Postolje-za-umiv.-Grigio-Luna-MN623-scaled.jpg",
+    "addedAt": "2026-09-25T21:48:08.338Z"
+  },
+  "salon": {
+    "src": "/images/originali/salon.jpg",
+    "width": 2400,
+    "height": 1800,
+    "sha256": "d20d34943e96d4a7fd9e3c17f78afedf826cb7b655af9c3ff8c094f54d581855",
+    "source": "https://memic.ba/",
+    "addedAt": "2026-09-25T21:48:10.210Z"
+  },
+  "sanitarije-salon": {
+    "src": "/images/originali/sanitarije-salon.jpg",
+    "width": 2400,
+    "height": 1600,
+    "sha256": "636c39833e3db499d70afabe9e4d18b2f1b316be877d1d9c4316006260339b33",
+    "source": "https://memic.ba/",
+    "addedAt": "2026-09-25T21:48:11.901Z"
+  },
+  "stol-sequoia": {
+    "src": "/images/originali/stol-sequoia.jpg",
+    "width": 1200,
+    "height": 1584,
+    "sha256": "18d096335401caceea7c13e8e69d186999a45a07e6d5bdae36fcc1c930d7fa49",
+    "source": "https://www.instagram.com/memicdekor_/p/DdqY9KljAhQ/",
+    "addedAt": "2026-09-25T21:48:14.299Z"
+  },
+  "umivaonici": {
+    "src": "/images/originali/umivaonici.jpg",
+    "width": 1080,
+    "height": 1350,
+    "sha256": "5edbc24dfa497d5e808c897a06e0ac49a6f07cf82a4fece8285ac5afda2384bd",
+    "source": "https://www.instagram.com/memicdekor_/p/DIcLIB1spZM/",
+    "addedAt": "2026-09-25T21:48:12.444Z"
+  },
+  "water-jet": {
+    "src": "/images/originali/water-jet.jpg",
+    "width": 1024,
+    "height": 577,
+    "sha256": "d68e6321e2238d5b3069b972dc0f461c70e47cdb05cde31372545f9d5cb21c9e",
+    "source": "https://memic.ba/wp-content/uploads/2024/12/slika-2-1-1024x577.jpg",
+    "addedAt": "2026-09-25T21:48:09.190Z"
+  }
+}

@@ -146,8 +146,8 @@ test.describe('raspored na svim širinama', () => {
       expect(image.alt, image.src).not.toBeNull();
       if (!image.inHero) expect(image.loading, image.src).toBe('lazy');
     }
-    // Mjesta za fotografije imaju visinu određenu omjerom i prije učitavanja slike.
-    const heights = await page.locator('[data-photo-pending]').evaluateAll((items) =>
+    // Stvarne fotografije imaju rezervisan prostor i prije učitavanja.
+    const heights = await page.locator('main img').evaluateAll((items) =>
       items.map((item) => item.getBoundingClientRect().height),
     );
     expect(heights.length).toBeGreaterThan(0);

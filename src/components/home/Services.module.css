@@ -5,7 +5,7 @@
 
 .grid {
   display: grid;
-  gap: 48px;
+  gap: 36px;
   list-style: none;
 }
 
@@ -17,7 +17,7 @@
 }
 
 .item + .item {
-  padding-top: 48px;
+  padding-top: 36px;
   border-top: 1px solid var(--c-line);
 }
 
@@ -60,4 +60,13 @@
     order: -1;
     margin-bottom: 8px;
   }
+}
+
+.number { display: block; margin-bottom: 12px; color: var(--c-primary); font: 500 .8125rem var(--font-sans); letter-spacing: .1em; }
+.photo { --photo-aspect: 3 / 2; }
+@media (max-width: 899px) {
+  .photo { order: -1; }
+  .title { display: flex; align-items: baseline; gap: 14px; }
+  .number { margin-bottom: 0; }
+  .text { max-width: 48ch; }
 }

@@ -15,6 +15,7 @@ export default function ProductsPage() {
     <>
       <PageIntro
         trail={['home', 'proizvodi']}
+        photo={photos.kupatilo}
         eyebrow="Proizvodi"
         title="Keramika, umivaonici i sanitarna oprema"
         lead="Pregled ponude u salonu Memić Dekor u Mostaru. Pločice i umivaonike najbolje je pogledati uživo, a za dostupnost pojedinih modela pošaljite upit."
@@ -39,7 +40,7 @@ export default function ProductsPage() {
           id={section.id}
           title={section.title}
           tone={index % 2 === 1 ? 'deep' : 'default'}
-          photo={section.id === 'umivaonici' ? photos.postolje : undefined}
+          photo={section.id === 'umivaonici' ? photos.umivaonici : section.id === 'sanitarije' ? photos.sanitarije : undefined}
         >
           <p>{section.intro}</p>
           {section.items ? <ItemList items={section.items} /> : null}

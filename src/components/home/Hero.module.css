@@ -14,7 +14,7 @@
 }
 
 .media {
-  z-index: -2;
+  z-index: 0;
 }
 
 .image {
@@ -26,7 +26,7 @@
 .scrim {
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 1;
   background:
     linear-gradient(90deg, rgba(14, 15, 16, 0.55) 0%, rgba(14, 15, 16, 0.2) 60%, rgba(14, 15, 16, 0) 100%),
     linear-gradient(
@@ -40,7 +40,8 @@
 
 .content {
   position: relative;
-  padding-block: 40px 32px;
+  z-index: 2;
+  padding-block: 112px 28px;
 }
 
 .eyebrow {
@@ -56,10 +57,19 @@
 /* Prijelom kao u smjernici („Keramika po / mjeri vašeg / prostora.”) određuje širina kolone. */
 .title {
   max-width: 7.6em;
-  font-size: var(--fs-display);
+  font-size: clamp(2.7rem, 1.6rem + 5.5vw, 5.25rem);
   line-height: 1.02;
   letter-spacing: -0.015em;
   text-wrap: wrap;
+}
+
+.title::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  margin-top: 24px;
+  background: #159cde;
 }
 
 .lead {
@@ -138,7 +148,7 @@
   }
 
   .content {
-    padding-block: 80px 64px;
+    padding-block: 64px 52px;
   }
 
   .eyebrow {

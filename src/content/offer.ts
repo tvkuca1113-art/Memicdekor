@@ -1,3 +1,5 @@
+import type { PhotoKey } from './images';
+
 // Ponuda: prostori, kategorije, katalog i izrada po mjeri.
 // Samo provjerena ponuda; bez cijena, zaliha, rokova i izmišljenih proizvoda.
 
@@ -7,6 +9,7 @@ export type LinkItem = {
 };
 
 export type Space = {
+  photo: PhotoKey;
   id: string;
   title: string;
   text: string;
@@ -46,6 +49,7 @@ export const offerFocus =
 export const spaces: Space[] = [
   {
     id: 'kuhinja',
+    photo: 'kuhinjaCrema',
     title: 'Kuhinja',
     text: 'Keramičke kuhinjske ploče i stolovi izrađeni po mjeri, te pločice i veliki formati za zid i pod.',
     links: [
@@ -55,6 +59,7 @@ export const spaces: Space[] = [
   },
   {
     id: 'kupatilo',
+    photo: 'kupatilo',
     title: 'Kupatilo',
     text: 'Umivaonici i sanitarna oprema, pločice i mozaici. Keramičke umivaonike i postolja izrađujemo i po mjeri.',
     links: [
@@ -64,8 +69,9 @@ export const spaces: Space[] = [
   },
   {
     id: 'ostali-prostori',
-    title: 'Ostali prostori',
-    text: 'Gazišta i okapnice po mjeri za stepeništa i ivice, zidni i podni mozaici te bazenska keramika.',
+    photo: 'dnevniBoravak',
+    title: 'Dnevni boravak i drugi prostori',
+    text: 'Keramičke ploče za stolove, gazišta i okapnice po mjeri, zidni i podni mozaici te bazenska keramika.',
     links: [
       { label: 'Gazišta i okapnice', href: '/proizvodnja/#gazista-i-okapnice' },
       { label: 'Bazenska keramika i mozaici', href: '/proizvodi/#bazenska-keramika' },

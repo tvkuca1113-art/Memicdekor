@@ -31,7 +31,7 @@ export default defineConfig({
       reuseExistingServer: false,
     },
     {
-      command: 'npx next start -p 3200',
+      command: 'npx next start --hostname 127.0.0.1 -p 3200',
       url: `${CONFIGURED_URL}/`,
       env: {
         RESEND_API_KEY: 'test-kljuc',
@@ -42,7 +42,7 @@ export default defineConfig({
       reuseExistingServer: false,
     },
     {
-      command: 'npx next start -p 3201',
+      command: 'npx next start --hostname 127.0.0.1 -p 3201',
       url: `${UNCONFIGURED_URL}/`,
       env: { RESEND_API_KEY: '', CONTACT_FROM_EMAIL: '' },
       reuseExistingServer: false,

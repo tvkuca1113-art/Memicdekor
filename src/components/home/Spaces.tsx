@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { offerFocus, spaces } from '@/content/offer';
+import { photos } from '@/content/images';
+import { Photo } from '../Photo';
 import { SectionHeading } from '../SectionHeading';
 import { ArrowRightIcon } from '../icons';
 import styles from './Spaces.module.css';
@@ -18,6 +20,9 @@ export function Spaces() {
         <ol className={styles.list}>
           {spaces.map((space, index) => (
             <li key={space.id} className={styles.row}>
+              <Photo photo={photos[space.photo]} aspect="4 / 3"
+                sizes="(min-width: 1280px) 400px, (min-width: 768px) 30vw, calc(100vw - 40px)"
+                className={styles.photo} />
               <span className={styles.index} aria-hidden="true">
                 {String(index + 1).padStart(2, '0')}
               </span>

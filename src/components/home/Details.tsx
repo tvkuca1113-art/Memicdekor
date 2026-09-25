@@ -1,4 +1,4 @@
-import { detailGallery, photoCaption, photos } from '@/content/images';
+import { detailGallery, galleryCopy, photoCaption, photos } from '@/content/images';
 import { socialProfiles } from '@/content/site';
 import { Photo } from '../Photo';
 import { SectionHeading } from '../SectionHeading';
@@ -12,9 +12,9 @@ export function Details() {
       <div className="container">
         <SectionHeading
           id="detalji-naslov"
-          eyebrow="Iz salona i proizvodnje"
-          title="Detalji iz ponude i izrade."
-          lead="Umivaonici, keramičke površine, gazišta i mozaici iz naše ponude i proizvodnje."
+          eyebrow={galleryCopy.eyebrow}
+          title={galleryCopy.title}
+          lead={galleryCopy.lead}
         />
         <ul className={styles.gallery}>
           {detailGallery.map((key, index) => {
@@ -25,7 +25,7 @@ export function Details() {
                 <figure className={styles.figure}>
                   <Photo
                     photo={photo}
-                    aspect={featured ? '4 / 5' : '4 / 3'}
+                    aspect="4 / 5"
                     sizes={
                       featured
                         ? '(min-width: 1280px) 620px, (min-width: 900px) 48vw, calc(100vw - 40px)'
@@ -33,7 +33,10 @@ export function Details() {
                     }
                     className={styles.photo}
                   />
-                  <figcaption className={styles.caption}>{photoCaption(photo)}</figcaption>
+                  <figcaption className={styles.caption}>
+                    {photoCaption(photo)}
+                    {photo.sourceUrl ? <a href={photo.sourceUrl} target="_blank" rel="noopener noreferrer" className={styles.source}>{galleryCopy.sourceLabel}<span className="visually-hidden">: {photo.caption} (novi prozor)</span><span aria-hidden="true"> ↗</span></a> : null}
+                  </figcaption>
                 </figure>
               </li>
             );

@@ -17,10 +17,10 @@ export default function ProductionPage() {
         eyebrow="Izrada po mjeri"
         title="Izrada po mjeri od keramike"
         lead="Osnovna djelatnost Memić Dekora je rezanje pločica i izrada keramičkih mozaika. Proizvodnja se nalazi u sklopu izložbenog salona u Mostaru, gdje od keramike izrađujemo elemente po mjeri vašeg prostora."
-        photo={photos.postolje}
+        photo={photos.kuhinjskePloce}
       />
 
-      <ContentSection id="sta-izradujemo" eyebrow="Proizvodnja" title="Šta izrađujemo">
+      <ContentSection id="sta-izradujemo" photo={photos.stolSequoia} eyebrow="Proizvodnja" title="Šta izrađujemo">
         <p>Keramiku režemo na različite dimenzije i od nje izrađujemo:</p>
         <ItemList items={customItems} />
       </ContentSection>
