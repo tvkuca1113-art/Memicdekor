@@ -16,17 +16,8 @@ const manifestPath = path.join(root, 'src/content/generated/original-photos.json
 const sourcesPath = path.join(root, 'src/content/photo-sources.json');
 const outDir = path.join(root, 'public/images/originali');
 
-// Mora odgovarati id-jevima u src/content/images.ts.
-const KNOWN_IDS = [
-  'postolje-grigio-luna',
-  'digitalni-print',
-  'water-jet',
-  'salon',
-  'umivaonici',
-  'kuhinjske-ploce',
-  'gazista',
-  'mozaici',
-];
+// Popis dozvoljenih id-jeva; test provjerava da odgovara src/content/images.ts.
+const KNOWN_IDS = JSON.parse(await readFile(path.join(root, 'src/content/photo-ids.json'), 'utf8'));
 const MAX_BYTES = 25 * 1024 * 1024;
 const MAX_WIDTH = 2400;
 const MIN_WIDTH = 600;

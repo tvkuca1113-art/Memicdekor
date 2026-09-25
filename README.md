@@ -31,10 +31,16 @@ Konfiguracija je u varijablama okruženja; primjer je u [`.env.example`](.env.ex
 
 | Varijabla | Namjena |
 | --- | --- |
-| `SITE_URL` | Javna domena (zadano `https://memic.ba`) za canonical, sitemap, Open Graph i JSON-LD |
-| `SITE_INDEXABLE` | `true` samo na produkciji; inače `noindex` + `robots.txt` Disallow |
+| `SITE_URL` | Javna domena za canonical, sitemap, Open Graph i JSON-LD. Bez nje se na Vercelu koristi domena projekta, a lokalno `https://memic.ba` |
+| `SITE_INDEXABLE` | `true` samo na produkciji; inače `noindex` i `robots.txt` Disallow. Indeksira se samo kanonska domena |
 | `RESEND_API_KEY`, `CONTACT_FROM_EMAIL` | Slanje forme; bez njih forma javlja da poruka nije poslana |
 | `CONTACT_TO_EMAIL` | Primalac upita (zadano `info@memic.ba`) |
+
+## Objava na Vercelu
+
+Projekat je pripremljen za Vercel (`vercel.json`, Node 22.x, provjera spremnosti u build logu).
+Uputstvo korak po korak, od uvoza repozitorija do domene memic.ba i uključivanja pretraživača, je u
+**[docs/VERCEL.md](docs/VERCEL.md)**.
 
 ## Provjere
 
