@@ -1,0 +1,59 @@
+.band {
+  padding-block: clamp(56px, 7vw, 96px);
+  border-top: 1px solid var(--c-line);
+  background: var(--c-surface);
+}
+
+.layout {
+  display: grid;
+  gap: 28px;
+}
+
+.text {
+  display: grid;
+  gap: 12px;
+}
+
+.title {
+  font-size: var(--fs-h2);
+}
+
+.body {
+  max-width: 40rem;
+  color: var(--c-ink-2);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 28px;
+}
+
+.phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  color: var(--c-ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.phone svg {
+  color: var(--c-primary);
+}
+
+.phone:hover {
+  color: var(--c-primary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+@media (min-width: 900px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 48px;
+  }
+}

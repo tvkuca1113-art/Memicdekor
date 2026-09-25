@@ -1,0 +1,63 @@
+/* Prva sekcija nakon hero dijela počinje bliže fotografiji, kao u smjernici. */
+.section {
+  padding-block: clamp(48px, 6vw, 80px) var(--section-y);
+}
+
+.grid {
+  display: grid;
+  gap: 48px;
+  list-style: none;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.item + .item {
+  padding-top: 48px;
+  border-top: 1px solid var(--c-line);
+}
+
+.title {
+  font-size: var(--fs-h3);
+}
+
+.text {
+  max-width: 36ch;
+  color: var(--c-ink-2);
+}
+
+.link {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 56px;
+  }
+
+  .item + .item {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  /* Tanki okomiti razdjelnici između stupaca */
+  .item + .item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -28px;
+    border-left: 1px solid var(--c-line);
+  }
+
+  .photo {
+    order: -1;
+    margin-bottom: 8px;
+  }
+}

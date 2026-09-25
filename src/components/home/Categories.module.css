@@ -1,0 +1,129 @@
+.section {
+  padding-block: var(--section-y);
+  background: var(--c-bg-deep);
+}
+
+.head {
+  display: grid;
+  gap: 8px;
+  margin-bottom: clamp(32px, 4.5vw, 56px);
+}
+
+.heading {
+  margin-bottom: 0;
+}
+
+.all {
+  justify-self: start;
+  margin-top: 12px;
+}
+
+.grid {
+  display: grid;
+  gap: 0;
+  list-style: none;
+  border-top: 2px solid var(--c-ink);
+}
+
+/* Cijela stavka je klikabilna preko linka u naslovu. */
+.item {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px 24px;
+  padding-block: 28px;
+  border-bottom: 1px solid var(--c-line-strong);
+}
+
+.title {
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+}
+
+.titleLink {
+  color: var(--c-ink);
+  text-decoration: none;
+}
+
+.titleLink::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.titleLink:focus-visible {
+  outline: none;
+}
+
+.titleLink:focus-visible::after {
+  outline: 3px solid var(--c-primary);
+  outline-offset: 2px;
+}
+
+.text {
+  grid-column: 1;
+  max-width: 40ch;
+  color: var(--c-ink-2);
+}
+
+.arrow {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  color: var(--c-primary);
+  transition: transform 0.18s ease;
+}
+
+.item:hover .titleLink {
+  color: var(--c-primary);
+}
+
+.item:hover .arrow {
+  transform: translateX(4px);
+}
+
+@media (min-width: 900px) {
+  .head {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 32px;
+  }
+
+  .all {
+    margin-top: 0;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-bottom: 1px solid var(--c-line-strong);
+  }
+
+  .item {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto 1fr auto;
+    gap: 14px;
+    padding: 32px 32px 32px 0;
+    border-bottom: 0;
+  }
+
+  .item + .item {
+    padding-left: 32px;
+    border-left: 1px solid var(--c-line-strong);
+  }
+
+  .text {
+    grid-column: auto;
+  }
+
+  .arrow {
+    grid-column: auto;
+    grid-row: auto;
+    align-self: end;
+    margin-top: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item:hover .arrow {
+    transform: none;
+  }
+}

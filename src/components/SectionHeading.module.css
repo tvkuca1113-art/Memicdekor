@@ -1,0 +1,15 @@
+.heading {
+  display: grid;
+  gap: 14px;
+  max-width: 48rem;
+  margin-bottom: clamp(32px, 4.5vw, 56px);
+}
+
+.title {
+  font-size: var(--fs-h2);
+}
+
+.lead {
+  max-width: 40rem;
+  margin-top: 4px;
+}
