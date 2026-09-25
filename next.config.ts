@@ -1,8 +1,10 @@
 import type { NextConfig } from 'next';
+import { PHASE_PRODUCTION_BUILD } from 'next/constants';
 import generatedPhotos from './src/content/generated/original-photos.json';
 import photoSources from './src/content/photo-sources.json';
 import { legacyRedirects } from './src/content/redirects';
-import { isIndexable } from './src/lib/site-config';
+import { deployReadiness, formatReadiness } from './src/lib/deploy-readiness';
+import { isIndexable, siteHostname } from './src/lib/site-config';
 
 type GeneratedPhoto = { src: string };
 
@@ -22,6 +24,12 @@ const securityHeaders = [
   { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(), payment=()' },
 ];
 
+const noindex = { key: 'X-Robots-Tag', value: 'noindex, nofollow' };
+
+function escapeRegex(value: string) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 const nextConfig: NextConfig = {
   trailingSlash: true,
   poweredByHeader: false,
@@ -40,11 +48,25 @@ const nextConfig: NextConfig = {
     ];
   },
   async headers() {
-    const headers = [...securityHeaders];
     // Pregledne verzije i lokalne izvedbe ne smiju u indeks pretraživača.
-    if (!isIndexable) headers.push({ key: 'X-Robots-Tag', value: 'noindex, nofollow' });
-    return [{ source: '/:path*', headers }];
+    if (!isIndexable) return [{ source: '/:path*', headers: [...securityHeaders, noindex] }];
+    return [
+      { source: '/:path*', headers: securityHeaders },
+      // Na produkciji se indeksira samo kanonska domena; *.vercel.app i ostali hostovi dobijaju noindex.
+      {
+        source: '/:path*',
+        missing: [{ type: 'host', value: escapeRegex(siteHostname) }],
+        headers: [noindex],
+      },
+    ];
   },
 };
 
-export default nextConfig;
+export default function config(phase: string): NextConfig {
+  // Build učitava konfiguraciju i u radnim procesima; izvještaj se ispisuje samo jednom.
+  if (phase === PHASE_PRODUCTION_BUILD && !process.env.MEMIC_READINESS_PRINTED) {
+    process.env.MEMIC_READINESS_PRINTED = '1';
+    console.log(`\n${formatReadiness(deployReadiness())}\n`);
+  }
+  return nextConfig;
+}

@@ -17,3 +17,5 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - Ilustrativne fotografije moraju ostati označene; originalne fotografije se dodaju skriptom `npm run photos:add`.
 - Prije predaje: `npm run check`, `npm run build`, `npm run test:e2e` (Playwright 1.56.1 zbog instaliranog Chromiuma).
 - Globalni CSS se uvozi prvi u `src/app/layout.tsx`, da bi ga CSS moduli mogli nadjačati.
+- Objava je na Vercelu (`docs/VERCEL.md`). Indeksira se samo kanonska domena i samo uz `SITE_INDEXABLE=true`;
+  produkciju objavljuje vlasnik.

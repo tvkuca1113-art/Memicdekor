@@ -49,9 +49,9 @@ npm run start                 # http://localhost:3000
 
 Za razvoj: `npm run dev`. Konfiguracija je u `.env.example`.
 
-Javna pregledna ni produkcijska verzija **nisu objavljene**, jer objava zahtijeva posebno odobrenje.
-Kod je na grani `claude/new-session-w62h05`. Ako je repozitorij povezan s Vercelom, pregledna verzija
-nastaje automatski za tu granu i ostaje `noindex`, jer Vercel preview nikad nije indeksabilan.
+Javna pregledna ni produkcijska verzija **nisu objavljene**, jer objavu radi vlasnik. Projekat je
+pripremljen za Vercel; uputstvo korak po korak je u **[VERCEL.md](VERCEL.md)**. Preview verzije se nikad
+ne indeksiraju. Na produkciji se indeksira samo kanonska domena, i to tek uz `SITE_INDEXABLE=true`.
 
 ## 3. Screenshotovi
 
@@ -79,8 +79,9 @@ Ponovno snimanje: `npm run build && npm run start`, zatim `npm run screenshots`.
 | --- | --- |
 | `npm run typecheck` (TypeScript) | bez grešaka |
 | `npm run lint` (ESLint, Next core-web-vitals) | bez grešaka i upozorenja |
-| `npm test` (Vitest) | 43/43 |
+| `npm test` (Vitest) | 52/52 |
 | `npm run build` | 8 stranica + sitemap, robots i ikona statički generisani |
+| `vercel build --prod` (Vercel CLI 60.0.1, lokalno) | Build completed successfully; 10 pravila 301, funkcije `nodejs22.x` |
 | `npm run test:e2e` (Playwright, Chromium 141) | 70/70 |
 
 E2E testovi pokrivaju:
@@ -190,9 +191,10 @@ sadržaju:
    - **Stvarna dostava još nije testirana**, jer nema ključa: testirana je samo sa zamjenskim servisom.
      Nakon podešavanja pošaljite probni upit.
    - Ako firma radije koristi svoj SMTP, `src/lib/contact/delivery.ts` je jedino mjesto za izmjenu.
-3. **Domena i indeksiranje.**
-   - Na produkciji postavite `SITE_URL=https://memic.ba` i `SITE_INDEXABLE=true`.
-   - Nakon objave prijavite sitemap u Google Search Console i Bing Webmaster Tools.
+3. **Objava, domena i indeksiranje.** Po koracima iz [VERCEL.md](VERCEL.md):
+   - uvoz na Vercel i domena memic.ba (samo A i CNAME zapisi, bez diranja MX zapisa);
+   - zatim `SITE_URL=https://memic.ba`, a na kraju `SITE_INDEXABLE=true`;
+   - nakon objave prijavite sitemap u Google Search Console i Bing Webmaster Tools.
 4. **Potvrda podataka** (vidi tabelu u odjeljku 6): adresa „294” ili „bb”, lokacija na Google kartama,
    aktuelne boje bazenske keramike, model B2351MC, izvoz na tržišta zapadne Evrope i rad na većim projektima.
 5. **Stari URL-ovi.**
@@ -212,8 +214,9 @@ sadržaju:
    Trenutni izvor je PNG od 550 × 200 px.
 8. **Politika privatnosti.** Forma prikuplja lične podatke. Kratka napomena postoji, a pravni tekst treba
    pripremiti s firmom.
-9. **Hosting i zaglavlja.** Stranica treba Node.js server (npr. Vercel) zbog forme. Nakon izbora hostinga
-   po želji dodajte Content-Security-Policy.
+9. **Hosting i zaglavlja.** Pripremljeno za Vercel (serverske funkcije u regiji `fra1`). Za stranicu firme
+   provjerite plan: Hobby je prema Vercelovim uslovima za nekomercijalnu upotrebu. Po želji dodajte
+   Content-Security-Policy.
 10. **Društvene mreže.** Potvrdite profil `@memicdekor_`; u indeksu se pojavljuje i `@memic_dekor_mostar`.
 
 ## 6. Evidencija ilustrativnih fotografija i nepotvrđenih podataka
