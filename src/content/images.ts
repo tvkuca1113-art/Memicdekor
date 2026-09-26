@@ -54,7 +54,7 @@ export const heroPhotos = {
   desktop: heroDesktop,
   mobile: heroMobile,
   alt: 'Kuhinja s ostrvom obloženim keramikom s mramornim uzorkom',
-  note: 'Ilustrativni prikaz prostora.',
+  note: 'Ilustrativni prikaz; nije fotografija izvedenog projekta Memić Dekora.',
   origin: 'illustrative' as PhotoOrigin,
 };
 
