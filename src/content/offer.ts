@@ -32,6 +32,8 @@ export type CatalogSection = {
   id: string;
   title: string;
   intro: string;
+  /** Originalna fotografija Memić Dekora koja vizuelno objašnjava kategoriju. */
+  photo: PhotoKey;
   items?: CatalogItem[];
   /** Proizvodi iz ranijeg kataloga na memic.ba, zadržani radi kontinuiteta. */
   legacyProducts?: { name: string; note: string }[];
@@ -104,6 +106,7 @@ export const catalogSections: CatalogSection[] = [
   {
     id: 'keramicke-plocice',
     title: 'Keramičke pločice i veliki formati',
+    photo: 'zidnaObloga',
     intro:
       'Pločice za zid i pod, uključujući velike formate. Formate, dekore i završne obrade najbolje je pogledati uživo u salonu, gdje ćemo vam pomoći s izborom.',
     items: [
@@ -114,12 +117,14 @@ export const catalogSections: CatalogSection[] = [
   {
     id: 'bazenska-keramika',
     title: 'Bazenska keramika i mozaici',
+    photo: 'salon',
     intro:
       'Mozaik nudimo u plavim, bež i narandžastim tonovima, a bazensku keramiku u plavim i zelenim nijansama. Mozaike slažemo i po vašem izboru boja.',
   },
   {
     id: 'umivaonici',
     title: 'Umivaonici',
+    photo: 'umivaoniciDetalj',
     intro: 'Umivaonici za kupatilo u različitim oblicima, dimenzijama i završnim obradama.',
     items: [
       {
@@ -135,6 +140,7 @@ export const catalogSections: CatalogSection[] = [
   {
     id: 'sanitarije',
     title: 'Sanitarna oprema',
+    photo: 'sanitarije',
     intro: 'Sanitarije za kupatilo, uključujući WC šolje. Za dostupne modele pošaljite upit ili nas posjetite u salonu.',
     legacyProducts: [{ name: 'B2351MC', note: 'WC šolja iz ranijeg kataloga' }],
   },
