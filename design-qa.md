@@ -1,8 +1,8 @@
 # Provjera dizajna — usluge i radovi Memić Dekora
 
-final result: blocked
+final result: passed
 
-Lokalna provjera završena je uspješno. Preostala je provjera ove izvedbe nakon javne objave. Prethodna završena provjera uvodne fotografije sačuvana je u `docs/qa/uvod-2026-09-26.md`.
+Lokalna provjera i provjera javne objave završene su uspješno. Prethodna završena provjera uvodne fotografije sačuvana je u `docs/qa/uvod-2026-09-26.md`.
 
 ## Opseg i smjernica
 
@@ -35,4 +35,15 @@ Obuhvaćeni su filteri, promjene slika, zatvaranje i fokus dijaloga, predpopunja
 
 ## Javna objava
 
-Čeka se provjera nove izvedbe na https://memicdekor.vercel.app/ prije označavanja konačnog rezultata kao uspješnog.
+URL: https://memicdekor.vercel.app/
+
+Objavljena implementacija: `f64ff4071963ae215150cb6898dcff70cfa9c182`. Vercel: SUCCESS. Javna stranica provjerena je u pregledniku pri 1363 × 936 px; mobilni prikaz provjeren je lokalno na istoj produkcijskoj izvedbi.
+
+- Filter „Stolovi” ostavio je dva rada. Otvoren je projekat stola i komode, pa druga fotografija komode. Slika se uspješno učitala, uz tačan opis i zasluge partneru. Nema horizontalnog prelijevanja.
+- „Želim slično rješenje” otvorilo je kontakt stranicu s nazivom rada u poruci i odabranim drugim prostorom. Vrh sekcije upita: 100,375 px; donji rub zaglavlja: 85 px. Poruka nije poslana.
+- Izbor „Digitalni print” promijenio je fotografiju, opis, primjene i link na `/digital-print/`. Potvrđeno je učitavanje izvorne fotografije.
+- Dokazi javne objave: `docs/screenshots/prezentacija-v2/objavljeni-projekat.jpg` i `objavljene-usluge.jpg`.
+- Zajedničko vizuelno poređenje: `docs/screenshots/prezentacija-v2/poredjenje-usluga.jpg`. Početno i završno stanje prikazuju zadanu uslugu pri ulasku u sekciju nakon klika na njen naslov. Slike su normalizovane na istu veličinu radi poređenja. Raspored je namjerno promijenjen; ne očekuje se pikselna podudarnost.
+- Završni pregled na računaru i mobitelu: `docs/screenshots/prezentacija-v2/pregled-redizajna.jpg`. To je kompozicija stvarnih snimaka, ne generisana maketa.
+
+Nakon popravki nema otvorenih P0/P1/P2 nalaza u provjerenim stanjima. Ova provjera nije formalna potvrda potpune WCAG usklađenosti niti mjerenje poslovne konverzije. Estetska ocjena konačnog smjera ostaje korisniku.
