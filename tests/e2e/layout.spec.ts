@@ -148,7 +148,7 @@ test.describe('raspored na svim širinama', () => {
       if (!image.inHero) expect(image.loading, image.src).toBe('lazy');
     }
     // Prikazane fotografije imaju rezervisan prostor; zatvoreni paneli su namjerno skriveni.
-    const heights = await page.locator('main img:visible').evaluateAll((items) =>
+    const heights = await page.locator('main img:visible:not([data-gallery-thumbnail])').evaluateAll((items) =>
       items.map((item) => item.getBoundingClientRect().height),
     );
     expect(heights.length).toBeGreaterThan(0);

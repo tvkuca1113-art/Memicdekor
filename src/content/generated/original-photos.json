@@ -71,6 +71,22 @@
     "source": "https://memic.ba/",
     "addedAt": "2026-09-25T21:48:10.210Z"
   },
+  "salon-pult": {
+    "src": "/images/originali/salon-pult.jpg",
+    "width": 640,
+    "height": 1136,
+    "sha256": "10a8efa9e1aadffbda071a4554dd30c0fd36067c6341778f265114be1a2336ac",
+    "source": "https://www.instagram.com/p/DQEwGovDP60/",
+    "addedAt": "2026-09-26T04:45:12.040Z"
+  },
+  "salon-pult-detalj": {
+    "src": "/images/originali/salon-pult-detalj.jpg",
+    "width": 2268,
+    "height": 4032,
+    "sha256": "d5fbe1347d7a788667891b9e0c1b326242b58158f01268324459e66be0393272",
+    "source": "https://www.instagram.com/p/DPvqlxeDFM8/",
+    "addedAt": "2026-09-26T04:45:15.041Z"
+  },
   "sanitarije-salon": {
     "src": "/images/originali/sanitarije-salon.jpg",
     "width": 2400,

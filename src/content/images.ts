@@ -59,6 +59,18 @@ export const heroPhotos = {
 };
 
 export const photos = {
+  salonPult: originalPhoto({
+    id: 'salon-pult',
+    alt: 'Pult obložen tamnom keramikom s natpisom Memić Dekor u izložbenom salonu',
+    caption: 'Novi pult u našem salonu, obložen keramikom.',
+    focus: '50% 72%',
+  }),
+  salonPultDetalj: originalPhoto({
+    id: 'salon-pult-detalj',
+    alt: 'Detalj spoja i šare keramičke obloge na pultu salona Memić Dekor',
+    caption: 'Detalj keramičke obloge i završne obrade pulta.',
+    focus: '50% 60%',
+  }),
   gazista: originalPhoto({
     id: 'gazista-salon',
     alt: 'Siva keramička gazišta sa završnim rubovima, izložena u salonu Memić Dekor',

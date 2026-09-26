@@ -1,0 +1,66 @@
+.gallery { min-width: 0; }
+.stage { position: relative; touch-action: pan-y pinch-zoom; }
+.controls {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  background: var(--c-bg);
+  color: var(--c-ink);
+  box-shadow: 0 2px 14px rgb(0 0 0 / 10%);
+}
+.controls button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.controls button:hover { color: var(--c-primary); background: var(--c-bg-deep); }
+.back { transform: rotate(180deg); }
+.count { padding-inline: 4px; font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.count span { margin-inline: 4px; color: var(--c-muted); }
+.caption { min-height: 82px; padding-block: 16px; }
+.caption p { font-size: var(--fs-small); font-weight: 600; }
+.caption > span:not(:first-child) { display: block; margin-top: 3px; color: var(--c-muted); font-size: 12px; }
+.thumbnails { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+.thumbnail {
+  min-width: 0;
+  padding: 0 0 7px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: var(--c-muted);
+  font: inherit;
+  cursor: pointer;
+}
+.thumbnail[aria-pressed='true'] { border-color: var(--c-primary); color: var(--c-ink); }
+.thumbnail:hover { color: var(--c-primary); }
+.thumbnailImage { display: block; position: relative; aspect-ratio: 4 / 3; background: var(--c-bg-deep); overflow: hidden; }
+.thumbnailLabel { display: block; padding-top: 7px; font-size: 11px; font-weight: 600; }
+.thumbnail[aria-pressed='true'] .thumbnailImage { outline: 2px solid var(--c-primary); outline-offset: -2px; }
+.video {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 0 0;
+  margin-top: 20px;
+  border-top: 1px solid var(--c-line);
+  color: var(--c-ink);
+  text-decoration: none;
+}
+.play { display: grid; place-items: center; flex: 0 0 44px; height: 44px; border: 1px solid var(--c-line-strong); border-radius: 50%; color: var(--c-primary); }
+.play svg { margin-left: -3px; }
+.videoText { flex: 1; }
+.videoText strong { display: block; font-size: var(--fs-small); font-weight: 600; }
+.videoText > span { display: block; font-size: 12px; color: var(--c-muted); }
+.video:hover .videoText strong { text-decoration: underline; text-underline-offset: 4px; }
+@media (min-width: 600px) {
+  .thumbnails { gap: 12px; }
+  .thumbnailLabel { font-size: 12px; }
+  .caption > span:not(:first-child) { font-size: 13px; }
+}
