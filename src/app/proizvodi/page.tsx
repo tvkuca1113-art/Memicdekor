@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ContentSection, ItemList } from '@/components/ContentSection';
 import { CtaBand } from '@/components/CtaBand';
 import { PageIntro } from '@/components/PageIntro';
+import { ProductHighlights } from '@/components/ProductHighlights';
 import { photos } from '@/content/images';
 import { catalogSections } from '@/content/offer';
 import { pageMetadata } from '@/lib/seo';
@@ -40,8 +41,8 @@ export default function ProductsPage() {
           id={section.id}
           title={section.title}
           tone={index % 2 === 1 ? 'deep' : 'default'}
-          photo={photos[section.photo]}
-          reverse={index % 2 === 1}
+          photo={section.photo ? photos[section.photo] : undefined}
+          reverse={Boolean(section.photo) && index % 2 === 1}
         >
           <p>{section.intro}</p>
           {section.items ? <ItemList items={section.items} /> : null}
@@ -59,6 +60,8 @@ export default function ProductsPage() {
           ) : null}
         </ContentSection>
       ))}
+
+      <ProductHighlights />
 
       <ContentSection
         id="izrada-po-mjeri"
