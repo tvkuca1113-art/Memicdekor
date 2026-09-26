@@ -13,8 +13,15 @@ type GeneratedPhoto = { src: string };
 const photoRedirects = Object.entries(photoSources as Record<string, string>).flatMap(([id, sourceUrl]) => {
   const file = (generatedPhotos as Record<string, GeneratedPhoto | undefined>)[id];
   if (!file) return [];
-  const { pathname } = new URL(sourceUrl);
-  return [{ source: pathname, destination: file.src, statusCode: 301 as const }];
+
+  const source = new URL(sourceUrl);
+  // 301 je potreban samo za stare direktne WordPress URL-ove slika.
+  // Izvor može biti i Instagram objava ili obična stranica memic.ba; takve stranice
+  // nikada ne preusmjeravamo na lokalnu JPG datoteku.
+  if (source.hostname !== 'memic.ba' && source.hostname !== 'www.memic.ba') return [];
+  if (!source.pathname.startsWith('/wp-content/uploads/')) return [];
+
+  return [{ source: source.pathname, destination: file.src, statusCode: 301 as const }];
 });
 
 const securityHeaders = [
