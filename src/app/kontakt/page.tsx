@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { InquirySection } from '@/components/InquirySection';
 import { JsonLd } from '@/components/JsonLd';
 import { PageIntro } from '@/components/PageIntro';
+import { photos } from '@/content/images';
 import { Salon } from '@/components/home/Salon';
 import { localBusinessJsonLd } from '@/lib/jsonld';
 import { pageMetadata } from '@/lib/seo';
@@ -24,6 +25,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
         eyebrow="Kontakt"
         title="Kontakt i upit"
         lead="Pošaljite upit putem forme, nazovite nas ili posjetite salon u Mostaru."
+        photo={photos.salonPult}
       />
       <InquirySection initialInquiry={initialInquiry} />
       <Salon />
