@@ -148,8 +148,23 @@ export function SiteHeader() {
         }}
       >
         <div className={styles.panel}>
+          {menuOpen && menuFeature.photo.file ? (
+            <div className={styles.panelBackdrop} aria-hidden="true">
+              <Image
+                src={menuFeature.photo.file.src}
+                alt=""
+                fill
+                sizes="100vw"
+                loading="eager"
+                style={{ objectFit: 'cover', objectPosition: menuFeature.photo.focus }}
+              />
+            </div>
+          ) : null}
+          <div className={styles.panelShade} aria-hidden="true" />
           <div className={styles.panelTop}>
-            <Logo alt="" className={styles.panelLogo} sizes="172px" loading="lazy" />
+            <span className={styles.panelLogoWrap}>
+              <Logo alt="" className={styles.panelLogo} sizes="172px" loading="lazy" />
+            </span>
             <button ref={closeRef} type="button" className={styles.closeButton} onClick={closeMenu} aria-label={menuCopy.closeLabel}>
               <span>{menuCopy.close}</span>
               <CloseIcon size={20} />
@@ -182,18 +197,9 @@ export function SiteHeader() {
             </nav>
             <div className={styles.panelAside}>
               <Link href={menuFeature.href} className={styles.feature} onClick={closeMenu}>
-                <span className={styles.featureImage}>
-                  {menuOpen && menuFeature.photo.file ? (
-                    <Image src={menuFeature.photo.file.src} alt="" fill
-                      sizes="(min-width: 700px) 320px, 110px" loading="lazy"
-                      style={{ objectFit: 'cover', objectPosition: menuFeature.photo.focus }} />
-                  ) : null}
-                </span>
-                <span className={styles.featureCopy}>
-                  <span className={styles.featureEyebrow}>{menuFeature.eyebrow}</span>
-                  <span className={styles.featureTitle}>{menuFeature.title}</span>
-                  <span className={styles.featureAction}>{menuFeature.action}<ArrowRightIcon size={16} /></span>
-                </span>
+                <span className={styles.featureEyebrow}>{menuFeature.eyebrow}</span>
+                <span className={styles.featureTitle}>{menuFeature.title}</span>
+                <span className={styles.featureAction}>{menuFeature.action}<ArrowRightIcon size={16} /></span>
               </Link>
               <a href={company.mapUrl} className={styles.panelAddress} target="_blank" rel="noopener noreferrer">
                 <MapPinIcon size={16} />
