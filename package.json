@@ -13,11 +13,12 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "check": "npm run typecheck && npm run lint && npm run test",
+    "check": "npm run types:prepare && npm run typecheck && npm run lint && npm run test",
     "assets": "node scripts/prepare-assets.mjs",
     "photos:fetch": "node scripts/photos.mjs fetch",
     "photos:add": "node scripts/photos.mjs add",
-    "screenshots": "node scripts/screenshots.mjs"
+    "screenshots": "node scripts/screenshots.mjs",
+    "types:prepare": "node scripts/prepare-next-types.mjs"
   },
   "dependencies": {
     "next": "16.3.6",
