@@ -40,7 +40,8 @@ export default function ProductsPage() {
           id={section.id}
           title={section.title}
           tone={index % 2 === 1 ? 'deep' : 'default'}
-          photo={section.id === 'umivaonici' ? photos.umivaonici : section.id === 'sanitarije' ? photos.sanitarije : undefined}
+          photo={photos[section.photo]}
+          reverse={index % 2 === 1}
         >
           <p>{section.intro}</p>
           {section.items ? <ItemList items={section.items} /> : null}
@@ -59,7 +60,12 @@ export default function ProductsPage() {
         </ContentSection>
       ))}
 
-      <ContentSection id="izrada-po-mjeri" eyebrow="Po mjeri" title="Ne nalazite odgovarajući format?">
+      <ContentSection
+        id="izrada-po-mjeri"
+        eyebrow="Po mjeri"
+        title="Ne nalazite odgovarajući format?"
+        photo={photos.kuhinjskePloce}
+      >
         <p>
           Keramičke umivaonike, kuhinjske ploče, stolove, gazišta, okapnice i mozaike izrađujemo po mjeri vašeg
           prostora, u proizvodnji koja se nalazi u sklopu salona.
