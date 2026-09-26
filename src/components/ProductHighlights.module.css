@@ -1,0 +1,88 @@
+.section {
+  padding-block: clamp(56px, 7.5vw, 112px);
+  border-top: 1px solid var(--c-line);
+  background: var(--c-surface);
+}
+
+.head {
+  display: grid;
+  gap: 14px;
+  max-width: 58rem;
+  margin-bottom: clamp(32px, 5vw, 56px);
+}
+
+.title {
+  max-width: 17em;
+  font-size: var(--fs-h2);
+}
+
+.lead {
+  max-width: 48rem;
+  color: var(--c-ink-2);
+}
+
+.grid {
+  display: grid;
+  gap: 28px;
+  list-style: none;
+}
+
+.card {
+  overflow: hidden;
+  border: 1px solid var(--c-line);
+  background: var(--c-bg);
+}
+
+.body {
+  display: grid;
+  gap: 10px;
+  padding: 22px;
+}
+
+.eyebrow {
+  color: var(--c-primary);
+  font-size: var(--fs-caption);
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.body h3 {
+  font-size: clamp(1.5rem, 1.3rem + .7vw, 2rem);
+}
+
+.body > p:not(.eyebrow):not(.caption) {
+  color: var(--c-ink-2);
+}
+
+.caption {
+  padding-top: 4px;
+  color: var(--c-muted);
+  font-size: var(--fs-small);
+}
+
+.source {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  width: fit-content;
+  margin-top: 4px;
+  color: var(--c-ink);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--c-line-strong);
+  text-underline-offset: 4px;
+}
+
+.source:hover {
+  color: var(--c-primary);
+  text-decoration-color: currentColor;
+}
+
+@media (min-width: 700px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
