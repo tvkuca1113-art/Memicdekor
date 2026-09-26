@@ -716,7 +716,14 @@
 .home { margin-bottom: calc(-1 * var(--header-h) - 1px); }
 .header { transition: background-color .2s ease, border-color .2s ease; }
 .overlay { background: transparent; border-color: transparent; }
-.overlay .logo { background: rgba(255,255,255,.9); padding: 8px 10px; border-radius: 3px; }
+.overlay .logo {
+  padding: 7px 9px;
+  border: 1px solid rgb(255 255 255 / 52%);
+  border-radius: 4px;
+  background: rgb(255 255 255 / 94%);
+  box-shadow: 0 8px 28px rgb(0 0 0 / 18%);
+  backdrop-filter: blur(6px);
+}
 .overlay .menuButton { color: #fff; background: rgba(16,18,18,.4); margin-right: 0; }
 .overlay .navLink, .overlay .phone, .overlay .phone svg { color: #fff; }
 .overlay .navLink { text-shadow: 0 1px 8px #000; }
