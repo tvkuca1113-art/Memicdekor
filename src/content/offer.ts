@@ -156,7 +156,7 @@ export const productHighlights: ProductHighlight[] = [
   {
     title: 'Pietra Antica Crema',
     eyebrow: 'Primjer iz realizacije',
-    text: 'Keramika je na ovoj realizaciji korištena za radnu ploču, zidnu oblogu i ostrvo. Fotografija potvrđuje naziv materijala, ali ne i trenutnu zalihu.',
+    text: 'Keramika je na ovoj realizaciji korištena za radnu ploču, zidnu oblogu i ostrvo. Fotografija potvrđuje naziv materijala, ali ne potvrđuje trenutnu dostupnost u salonu.',
     photo: 'kuhinjaCrema',
   },
   {
