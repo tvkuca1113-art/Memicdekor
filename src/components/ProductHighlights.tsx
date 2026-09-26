@@ -12,7 +12,7 @@ export function ProductHighlights() {
           <p className="eyebrow">Stvarni primjeri</p>
           <h2 id="primjeri-naslov" className={styles.title}>Materijali i izrada koje možete vidjeti na stvarnim fotografijama.</h2>
           <p className={styles.lead}>
-            Ovo nisu tvrdnje o trenutnoj zalihi. Za dostupne dekore, formate i modele pošaljite upit ili posjetite salon.
+            Prikazane fotografije ne potvrđuju trenutnu dostupnost. Za dostupne dekore, formate i modele pošaljite upit ili posjetite salon.
           </p>
         </div>
         <ul className={styles.grid}>
