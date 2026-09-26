@@ -1,6 +1,6 @@
 # Provjera dizajna — Memić Dekor, 26. septembar 2026.
 
-final result: blocked
+final result: passed
 
 ## Cilj i dokazi
 
@@ -29,8 +29,22 @@ Provjereni su izbor prostora mišem i tastaturom, meni, CTA, sidra, FAQ, telefon
 - Mjerenje kontrasta i završna zajednička usporedba: završeni.
 - Fokusirani pregled loga, naslova, dugmadi i fotografske oštrine na istom prikazu: završen.
 - Raspored pri 390 × 844 i 1440 × 900, meni i sekcije: provjereni.
-- Objava i provjera u cloud pregledniku: preostalo. Zato ukupni rezultat do te provjere ostaje blocked.
+- Objava i provjera u cloud pregledniku: završene na javnoj stranici, bez preostalih P0/P1/P2 nalaza.
 
 ## Namjerna odstupanja i gustoća
 
 Snimci su napravljeni u pregledniku pri deviceScaleFactor 2, zatim smanjeni na CSS širinu. Izvorni mockup 784 × 2008 px normalizovan je na 390 × 998 px. Usporedba stavlja izvor i prvih 998 px stvarne stranice jedan pored drugog. Stvarni mobilni viewport je 390 × 844: uvod ispunjava tu visinu, pa sljedeća sekcija dolazi niže nego na maketi. Kompaktni naslov u dva reda, veći dodirni ciljevi i izvorni logo su namjerni funkcionalni izbori prema korisnikovom zahtjevu. Gornji dio kadra ostaje otvoren, slavina vidljiva i fotografija neprekinuta. Nema preostalih vizuelnih P0/P1/P2 nalaza nakon lokalne provjere. Subjektivna potvrda estetskog smjera ostaje korisniku.
+
+## Provjera objavljene stranice
+
+URL: https://memicdekor.vercel.app/
+
+Objavljena implementacija: `dfab3038c237917571192ad3fa10f2694695dd46`; Vercel status SUCCESS. Provjereno u cloud pregledniku pri 1363 × 936 px. Dokaz: `docs/screenshots/objavljena-pocetna.jpg`.
+
+- Uvodna fotografija učitana je i neprekinuto pokriva cijeli uvod iza zaglavlja; horizontalno prelijevanje nije prisutno.
+- Klik na „Kupatilo” promijenio je odabranu karticu, fotografiju umivaonika, opis i povezane stranice. Strelica udesno zatim je odabrala „Dnevni boravak” i fotografiju stolića.
+- „Pošaljite upit” otvorio je `/#upit`. Vrh sekcije bio je na 100,28 px, ispod donjeg ruba zaglavlja na 85 px.
+- U pregledanim zapisima konzole nema greške aplikacije. Prisutni su raniji zapisi ekstenzije preglednika s izvorom `chrome-extension://…`, nevezani za aplikaciju.
+- Stvarna poruka putem kontakt forme nije poslana. Njeno ponašanje provjereno je lokalnim automatizovanim testovima navedenim iznad.
+
+Završena je provjera lokalne izvedbe i javne objave. Ovaj rezultat ne predstavlja garanciju svih mogućih uređaja niti formalnu potvrdu potpune WCAG usklađenosti.
