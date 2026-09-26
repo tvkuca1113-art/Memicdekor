@@ -104,3 +104,22 @@ test.describe('navigacija na računaru', () => {
     await expect(answer).toBeVisible();
   });
 });
+
+test('izbor prostora mijenja fotografiju i relevantne linkove, uključujući tastaturu', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+  const tabs = page.getByRole('tablist', { name: 'Odaberite prostor' });
+  const panel = page.getByRole('tabpanel');
+  await expect(tabs.getByRole('tab', { name: /Kuhinja/ })).toHaveAttribute('aria-selected', 'true');
+  await expect(panel.getByRole('img')).toHaveAttribute('alt', /Pietra Antica Crema/);
+  await tabs.getByRole('tab', { name: /Kupatilo/ }).click();
+  await expect(panel.getByRole('img')).toHaveAttribute('alt', /umivaonici/i);
+  await expect(panel.getByRole('link', { name: 'Umivaonici po mjeri' })).toHaveAttribute('href', '/proizvodnja/#umivaonici-i-postolja');
+  await page.keyboard.press('ArrowRight');
+  await expect(tabs.getByRole('tab', { name: /Dnevni boravak/ })).toBeFocused();
+  await expect(panel.getByRole('img')).toHaveAttribute('alt', /stolića/);
+  await page.keyboard.press('Home');
+  await expect(tabs.getByRole('tab', { name: /Kuhinja/ })).toBeFocused();
+  await expect(panel.getByRole('img')).toHaveAttribute('alt', /Pietra Antica Crema/);
+  await expect(panel.getByRole('link', { name: 'Kuhinjske ploče i stolovi' })).toHaveAttribute('href', '/proizvodnja/#kuhinjske-ploce-i-stolovi');
+});

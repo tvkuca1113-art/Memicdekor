@@ -1,17 +1,18 @@
-.section { padding-block: var(--section-y); }
-.gallery { display: grid; gap: 32px 24px; list-style: none; }
-.figure { display: grid; gap: 14px; height: 100%; align-content: start; }
-.caption { color: var(--c-ink-2); font-size: var(--fs-small); }
-.source { display: block; width: fit-content; padding-block: 8px; color: var(--c-primary); font-size: var(--fs-caption); text-underline-offset: 4px; }
-.social { margin-top: 36px; color: var(--c-ink-2); }
-@media (min-width: 600px) {
-  .gallery { grid-template-columns: repeat(2,minmax(0,1fr)); }
-}
-@media (min-width: 1080px) {
-  .gallery { grid-template-columns: 1.15fr 1fr 1fr; gap: 32px; align-items: start; }
-  .featured { grid-row: span 2; align-self: stretch; }
-  .featured .figure { grid-template-rows: 1fr auto; }
-  .featured .photo { --photo-aspect: auto; height: 100%; min-height: 460px; }
-  .item:last-child { grid-column: 2 / 4; }
-  .item:last-child .photo { --photo-aspect: 3 / 1; }
+.section { padding-block: var(--section-y); background: var(--c-bg-deep); }
+.head { display: grid; gap: 20px; margin-bottom: 32px; }
+.heading { margin-bottom: 0; max-width: 30rem; }
+.lead { max-width: 33ch; color: var(--c-ink-2); font-size: var(--fs-small); }
+.gallery { display: grid; gap: 32px; }
+.caption { margin-top: 12px; color: var(--c-muted); font-size: .75rem; max-width: 44ch; }
+.side { width: 78%; justify-self: end; }
+.social { margin-top: 26px; padding-top: 18px; border-top: 1px solid var(--c-line-strong); }
+.social p { color: var(--c-muted); font-size: .75rem; }
+.social a { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 48px; color: var(--c-ink); font-size: .875rem; font-weight: 600; text-decoration: none; }
+.social a:hover { color: var(--c-primary); }
+@media (min-width: 768px) {
+  .head { grid-template-columns: 1.4fr 1fr; align-items: end; gap: 60px; margin-bottom: 52px; }
+  .lead { justify-self: end; }
+  .gallery { grid-template-columns: 1.35fr 1fr; align-items: start; gap: clamp(48px,7vw,110px); }
+  .side { width: 100%; margin-top: 110px; }
+  .social { margin-top: 36px; }
 }

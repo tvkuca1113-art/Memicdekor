@@ -1,43 +1,36 @@
-# Vizuelna i funkcionalna provjera — Memić Dekor
+# Provjera dizajna — Memić Dekor, 26. septembar 2026.
 
-final result: passed
+final result: blocked
 
-## Izvori i snimci
+## Cilj i dokazi
 
-- Vizuelni smjer: `design/smjernica-desktop.jpg` (1469 × 1071) i `design/smjernica-mobitel.jpg` (860 × 1829).
-- Izvedba: `docs/screenshots/pocetna-1440x900.jpg` i `docs/screenshots/pocetna-390x844.jpg`.
-- Preglednici: Chromium, CSS viewport 1440 × 900 / 390 × 844. Snimci projekta nastaju pri gustoći 2× i smanjeni su na CSS veličinu. Izvori su za poređenje skalirani proporcionalno na iste širine, bez rastezanja.
-- Kombinovani pregled izvora i izvedbe: `/tmp/memic-desktop-comparison.jpg`, `/tmp/memic-mobile-comparison.jpg` (radni uporedni snimci).
-- Stanje: početna stranica, zatvoren meni, učitani fontovi i slike. Dodatno pregledani usluge, izbor prostora, galerija, salon i proizvodnja na javnoj stranici.
-- Javna adresa: https://memicdekor.vercel.app/
+Korisnik je odabrao istu kuhinjsku scenu kao jedinstvenu pozadinu i tražio kompaktniji tekst. Vizuelna smjernica: `docs/design/puna-pozadina-smjernica.jpg` (390 × 998 px, normalizovano iz generisanog prikaza). Implementacija: `docs/screenshots/pocetna-390x844.jpg`, `pocetna-1440x900.jpg` i cijele stranice u istom direktoriju. Stanje: početna na vrhu, meni zatvoren, odabrana kuhinja.
 
-## Nalazi i dorade
+## Iteracije
 
-1. [P1, riješeno] Prazna mjesta za fotografije. Uvezeno 11 stvarnih fotografija; javna početna ima 12 prikaza slika, sve se učitavaju i nema placeholdera.
-2. [P2, riješeno] Previše taman mobilni hero. Ublažen prekrivajući gradijent, posebno na desnoj strani fotografije, i smanjen gornji razmak sadržaja.
-3. [P2, riješeno] Prva svjetlija varijanta nije imala dovoljan kontrast malog natpisa na 320 px (3,2:1). Lokalno pojačan gornji dio gradijenta. Nakon popravke svih 20 provjera kontrasta i rasporeda prolazi.
+1. [P1] Postojeći portretni kadar 4:5 je pri pokrivanju ekrana 390 × 844 odsijecao slavinu. Dokaz: prva zajednička usporedba `docs/design/poredjenje-mobitel.jpg`. Popravka: zaseban vertikalni kadar iste ilustracije 9:19,5, dok je desktop zadržan.
+2. [P2] Na 320 × 700 opis preko fotografije nije dostizao 4,5:1 (izmjereno 4,09). Popravka: sjenčenje na uskom ekranu.
+3. [P2] Novi kadar je na 390 × 844 pomjerio svijetlu površinu iza natpisa „Studio keramike · Mostar” (3,07:1). Popravka: lokalni sloj ispod donjeg lijevog teksta; gornji dio fotografije i desni rub ostaju otvoreni. Popravka potvrđena u završnoj zajedničkoj usporedbi i ponovljenim testovima na šest širina. Na 390 × 844 izmjeren je 2. percentil kontrasta 5,63:1 za natpis i 8,51:1 za naslov; to nije tvrdnja da svaki pojedini piksel ima isti kontrast.
 
-## Pet provjerenih površina
+## Pregled površina
 
-- Tipografija: serifni naslovi DM Serif Display i čitljivi Manrope za tekst; bosanska slova i prijelomi su ispravni. Nema odsijecanja ni pri uvećanju teksta 200 %.
-- Raspored: svijetlo zaglavlje, velika fotografija, lijevo poravnati naslov i poziv na upit; na računaru tri kolone usluga i prostora, na mobitelu jedna. Mobilna dugmad i tekst su namjerno veći nego u rasterizovanoj smjernici, zbog čitljivosti i dodira. Zato je hero viši; naslov i glavni CTA ostaju vidljivi bez skrolanja na 390 × 844.
-- Boje: plavi akcent logotipa, bijeli tekst na tamnoj fotografiji i tople svijetle pozadine. Kontrast je provjeren na stvarnim pikselima fotografije, uz automatske WCAG provjere.
-- Slike: originalni logo umjesto približne verzije u generisanoj smjernici; stvarne fotografije usluga, prostora i projekata. Namjerne razlike: dokumentarne fotografije imaju prirodnu rasvjetu, a ilustrativni hero ostaje označen. Desktop i mobilni izrez se učitavaju odvojeno; nema preuzimanja obje varijante.
-- Sadržaj: bosanski (ijekavica), potvrđeni telefon i adresa, zasluge za saradnju s Modimexom, bez izmišljenih projekata. Gazišta i mozaici ostaju u ponudi, ali ih galerija ne predstavlja nepovezanim slikama.
+- Tipografija: DM Serif Display / Manrope, naslov smanjen na 39,39 px na 390 px. Prijelom u dva reda umjesto tri je namjeran: korisnik traži da tekst manje zaklanja fotografiju. Desktop 73,44 px.
+- Raspored: jedna fotografija pokriva uvod i zaglavlje. CTA je kompaktan, najmanje 48 px visok. Navigacija kroz sadržaj ostaje vidljiva pri dnu uvoda. Hero je prilagođen visini stvarnog viewporta, a ne rasterizovan na dimenzije makete.
+- Boje: postojeća plava brenda, topla svijetla podloga, tamna sekcija usluga. Završna provjera kontrasta prošla je na šest veličina ekrana.
+- Slike: stvarni originali za ponudu, projekte i salon; ilustracija uvoda jasno označena. Nema zamjenskih nacrtanih slika ili novog loga.
+- Sadržaj: bosanski pravopis, izvorni kontakti; u galeriji zasluge partneru bez pogrešnog označavanja kao fotografa. Bez izmišljenih recenzija, statistika ili nagrada.
 
-Poređeni su cjelokupna kompozicija i pojedinačni hero, tipografija, dugmad, logo i slike usluga. Razlike u visini hero sekcije i gustoći sadržaja prihvaćene su kao funkcionalna prilagodba responzivne stranice, a ne reprodukcija rastera piksel po piksel.
+## Funkcionalni dokazi
 
-## Testovi
+Provjereni su izbor prostora mišem i tastaturom, meni, CTA, sidra, FAQ, telefonski i e-mail linkovi. Testovi forme koriste lokalni servis; stvarna dostava nije testirana. Provjera na 320–1920 px uključuje prelijevanje i uvećanje teksta 200 %. npm run check: 52 testa, TypeScript i ESLint uspješni. Produkcijska izvedba uspješna. Playwright: 71 test uspješan, pa dodatnih 6 provjera kontrasta nakon ublažavanja prijelaza sjenčenja.
 
-- `npm run check`: TypeScript, ESLint i 52 unit testa prolaze.
-- `npm run build`: produkcijski build prolazi.
-- `npm run test:e2e`: 70 testova prolazi prije završnog podešavanja mobilnog gradijenta.
-- Poslije posljednje CSS promjene: svih 20 relevantnih testova kontrasta i rasporeda ponovo prolazi (320–1920 px).
-- Pokriveni: mobilni meni i fokus, Escape, navigacija, CTA, sidra, forma s greškama i uspjehom preko lokalnog testnog servisa, 301 preusmjerenja, metadata, robots, sitemap, lazy loading, reduced motion i uvećan tekst.
-- Javno provjereni: učitavanje svih fotografija na početnoj, odsustvo horizontalnog prelijevanja, otvaranje kontakta i proizvodnje.
-- Konzola: nema uočenih grešaka aplikacije; dvije poruke pripadaju proširenju preglednika.
-- Stvarna isporuka e-maila nije testirana; testovi forme koriste lokalnu zamjenu servisa. DNS i postavke indeksiranja nisu mijenjani.
+## Kontrolna lista
 
-## Preostalo
+- Mjerenje kontrasta i završna zajednička usporedba: završeni.
+- Fokusirani pregled loga, naslova, dugmadi i fotografske oštrine na istom prikazu: završen.
+- Raspored pri 390 × 844 i 1440 × 900, meni i sekcije: provjereni.
+- Objava i provjera u cloud pregledniku: preostalo. Zato ukupni rezultat do te provjere ostaje blocked.
 
-Nema otvorenih P0/P1/P2 nalaza za ovu doradu. Buduće fotografije gazišta i mozaika mogu proširiti galeriju kada firma dostavi odgovarajuće originale.
+## Namjerna odstupanja i gustoća
+
+Snimci su napravljeni u pregledniku pri deviceScaleFactor 2, zatim smanjeni na CSS širinu. Izvorni mockup 784 × 2008 px normalizovan je na 390 × 998 px. Usporedba stavlja izvor i prvih 998 px stvarne stranice jedan pored drugog. Stvarni mobilni viewport je 390 × 844: uvod ispunjava tu visinu, pa sljedeća sekcija dolazi niže nego na maketi. Kompaktni naslov u dva reda, veći dodirni ciljevi i izvorni logo su namjerni funkcionalni izbori prema korisnikovom zahtjevu. Gornji dio kadra ostaje otvoren, slavina vidljiva i fotografija neprekinuta. Nema preostalih vizuelnih P0/P1/P2 nalaza nakon lokalne provjere. Subjektivna potvrda estetskog smjera ostaje korisniku.

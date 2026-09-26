@@ -290,3 +290,19 @@
     transform: none;
   }
 }
+
+/* Na početnoj zaglavlje leži na istom kadru. Nakon pomjeranja postaje čitljivo bijelo zaglavlje. */
+.home { margin-bottom: calc(-1 * var(--header-h) - 1px); }
+.header { transition: background-color .2s ease, border-color .2s ease; }
+.overlay { background: transparent; border-color: transparent; }
+.overlay .logo { background: rgba(255,255,255,.9); padding: 8px 10px; border-radius: 3px; }
+.overlay .menuButton { color: #fff; background: rgba(16,18,18,.4); margin-right: 0; }
+.overlay .navLink, .overlay .phone, .overlay .phone svg { color: #fff; }
+.overlay .navLink { text-shadow: 0 1px 8px #000; }
+.overlay .cta { --btn-bg: rgba(16,18,18,.4); --btn-border: rgba(255,255,255,.65); --btn-fg: #fff; }
+.overlay .cta:hover { --btn-bg: var(--c-primary); --btn-border: var(--c-primary); }
+@media (min-width: 1080px) {
+  .overlay { background: linear-gradient(rgba(12,13,14,.7), rgba(12,13,14,.15)); }
+  .home .logoImage { width: 204px; }
+}
+@media (min-width: 1280px) { .home .logoImage { width: 220px; } }

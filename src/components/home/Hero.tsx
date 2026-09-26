@@ -2,7 +2,8 @@ import { getImageProps } from 'next/image';
 import Link from 'next/link';
 import { preload } from 'react-dom';
 import { heroPhotos } from '@/content/images';
-import { secondaryCta } from '@/content/site';
+import { primaryCta, secondaryCta } from '@/content/site';
+import { homeCopy } from '@/content/home';
 import { ArrowRightIcon } from '../icons';
 import styles from './Hero.module.css';
 
@@ -51,16 +52,14 @@ export function Hero() {
       <div className={styles.scrim} aria-hidden="true" />
 
       <div className={`container ${styles.content}`}>
-        <p className={styles.eyebrow}>
-          Studio keramike <span aria-hidden="true">·</span> Mostar
-        </p>
+        <p className={styles.eyebrow}>{homeCopy.hero.eyebrow}</p>
         <h1 id="naslov" className={styles.title}>
-          Keramika po mjeri vašeg prostora.
+          {homeCopy.hero.title}
         </h1>
-        <p className={styles.lead}>Kuhinje, kupatila i rješenja izrađena po mjeri.</p>
+        <p className={styles.lead}>{homeCopy.hero.lead}</p>
         <div className={styles.actions}>
           <Link href="#upit" className={`btn ${styles.primary}`}>
-            Pošaljite upit
+            {primaryCta.label}
             <ArrowRightIcon className="btn-icon" size={20} />
           </Link>
           <Link href={secondaryCta.href} className={`btn btn-outline-light ${styles.secondary}`}>
@@ -70,6 +69,15 @@ export function Hero() {
         </div>
         <p className={styles.note}>{heroPhotos.note}</p>
       </div>
+      <nav className={`container ${styles.shortcuts}`} aria-label="Istražite Memić Dekor">
+        {homeCopy.hero.links.map((link, index) => (
+          <Link key={link.href} href={link.href}>
+            <span className={styles.shortcutNumber} aria-hidden="true">0{index + 1}</span>
+            {link.label}
+            <ArrowRightIcon size={16} />
+          </Link>
+        ))}
+      </nav>
     </section>
   );
 }

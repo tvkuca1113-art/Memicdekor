@@ -2,13 +2,20 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useCallback, useEffect, useRef, useState, type MouseEvent } from 'react';
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore, type MouseEvent } from 'react';
 import { company, formattedAddress, mainNav, primaryCta, type NavItem } from '@/content/site';
 import { ArrowRightIcon, CloseIcon, MailIcon, MapPinIcon, MenuIcon, PhoneIcon } from './icons';
 import { Logo } from './Logo';
 import styles from './SiteHeader.module.css';
 
 const DESKTOP_QUERY = '(min-width: 1080px)';
+
+function subscribeScroll(callback: () => void) {
+  window.addEventListener('scroll', callback, { passive: true });
+  return () => window.removeEventListener('scroll', callback);
+}
+const getScrolled = () => window.scrollY > 40;
+const getServerScrolled = () => false;
 
 function trimSlash(path: string) {
   return path.length > 1 ? path.replace(/\/+$/, '') : path;
@@ -23,6 +30,8 @@ function currentState(pathname: string, item: NavItem): 'page' | 'true' | undefi
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const scrolled = useSyncExternalStore(subscribeScroll, getScrolled, getServerScrolled);
+  const home = pathname === '/';
   const dialogRef = useRef<HTMLDialogElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -78,7 +87,7 @@ export function SiteHeader() {
   };
 
   return (
-    <header className={styles.header}>
+    <header className={[styles.header, home && styles.home, home && !scrolled && styles.overlay].filter(Boolean).join(' ')}>
       <div className={`container ${styles.bar}`}>
         <Link href="/" className={styles.logo} onClick={handleLogoClick}>
           <Logo

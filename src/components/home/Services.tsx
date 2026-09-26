@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { photos } from '@/content/images';
 import { services } from '@/content/services';
+import { homeCopy } from '@/content/home';
 import { Photo } from '../Photo';
 import { SectionHeading } from '../SectionHeading';
 import { ArrowRightIcon } from '../icons';
@@ -9,26 +10,18 @@ import styles from './Services.module.css';
 export function Services() {
   return (
     <section className={styles.section} aria-labelledby="usluge-naslov">
-      <div className="container">
-        <SectionHeading id="usluge-naslov" eyebrow="Naše usluge" title="Od ideje do izrade." />
+      <div className={`container ${styles.layout}`}>
+        <SectionHeading id="usluge-naslov" eyebrow={homeCopy.services.eyebrow} title={homeCopy.services.title} lead={homeCopy.services.lead} className={styles.heading} />
         <ul className={styles.grid}>
           {services.map((service, index) => (
             <li key={service.id} className={styles.item}>
-              <h3 className={styles.title}><span className={styles.number} aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>{service.title}</h3>
-              <Photo
-                photo={photos[service.photo]}
-                aspect="16 / 9"
-                sizes="(min-width: 1280px) 390px, (min-width: 900px) 30vw, calc(100vw - 40px)"
-                className={styles.photo}
-              />
-              <p className={styles.text}>{service.summary}</p>
-              <Link href={service.href} className={`text-link ${styles.link}`}>
-                <span className="text-link-inner">
-                  Saznajte više
-                  <span className="visually-hidden"> {service.linkLabel}</span>
-                  <ArrowRightIcon className="btn-icon" size={20} />
-                </span>
-              </Link>
+              <span className={styles.number} aria-hidden="true">0{index + 1}</span>
+              <div className={styles.body}>
+                <h3 className={styles.title}>{service.title}</h3>
+                <p className={styles.text}>{service.summary}</p>
+                <Link href={service.href} className={styles.link}>{homeCopy.services.link}<span className="visually-hidden"> {service.linkLabel}</span><ArrowRightIcon size={18} /></Link>
+              </div>
+              <Photo photo={photos[service.photo]} aspect="1 / 1" sizes="(min-width: 900px) 180px, 30vw" className={styles.photo} />
             </li>
           ))}
         </ul>

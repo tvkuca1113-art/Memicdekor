@@ -4,7 +4,7 @@
 // Dok datoteka ne postoji, stranica prikazuje jasno označeno mjesto za fotografiju.
 
 import heroDesktop from '@/assets/hero/kuhinja-ostrvo-desktop.jpg';
-import heroMobile from '@/assets/hero/kuhinja-ostrvo-mobitel.jpg';
+import heroMobile from '@/assets/hero/kuhinja-ostrvo-mobitel-v2.jpg';
 import generated from './generated/original-photos.json';
 import photoSources from './photo-sources.json';
 
@@ -125,7 +125,7 @@ export type PhotoKey = keyof typeof photos;
 
 /** Tekst ispod fotografije: opis i, ako postoje, zasluge fotografa ili partnera. */
 export function photoCaption(photo: PhotoEntry): string | undefined {
-  const parts = [photo.caption, photo.credit ? `Foto: ${photo.credit}.` : undefined].filter(Boolean);
+  const parts = [photo.caption, photo.credit ? `${photo.credit}.` : undefined].filter(Boolean);
   return parts.length > 0 ? parts.join(' ') : undefined;
 }
 

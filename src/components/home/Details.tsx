@@ -1,58 +1,36 @@
-import { detailGallery, galleryCopy, photoCaption, photos } from '@/content/images';
+import { photoCaption, photos } from '@/content/images';
+import { homeCopy } from '@/content/home';
 import { socialProfiles } from '@/content/site';
 import { Photo } from '../Photo';
 import { SectionHeading } from '../SectionHeading';
+import { ArrowRightIcon } from '../icons';
 import styles from './Details.module.css';
 
 export function Details() {
-  const [instagram, facebook] = socialProfiles;
-
+  const instagram = socialProfiles[0];
   return (
     <section className={styles.section} aria-labelledby="detalji-naslov">
       <div className="container">
-        <SectionHeading
-          id="detalji-naslov"
-          eyebrow={galleryCopy.eyebrow}
-          title={galleryCopy.title}
-          lead={galleryCopy.lead}
-        />
-        <ul className={styles.gallery}>
-          {detailGallery.map((key, index) => {
-            const photo = photos[key];
-            const featured = index === 0;
-            return (
-              <li key={photo.id} className={featured ? styles.featured : styles.item}>
-                <figure className={styles.figure}>
-                  <Photo
-                    photo={photo}
-                    aspect="4 / 5"
-                    sizes={
-                      featured
-                        ? '(min-width: 1280px) 620px, (min-width: 900px) 48vw, calc(100vw - 40px)'
-                        : '(min-width: 1280px) 300px, (min-width: 900px) 24vw, (min-width: 520px) 46vw, calc(100vw - 40px)'
-                    }
-                    className={styles.photo}
-                  />
-                  <figcaption className={styles.caption}>
-                    {photoCaption(photo)}
-                    {photo.sourceUrl ? <a href={photo.sourceUrl} target="_blank" rel="noopener noreferrer" className={styles.source}>{galleryCopy.sourceLabel}<span className="visually-hidden">: {photo.caption} (novi prozor)</span><span aria-hidden="true"> ↗</span></a> : null}
-                  </figcaption>
-                </figure>
-              </li>
-            );
-          })}
-        </ul>
-        <p className={styles.social}>
-          Više fotografija iz salona i izrade objavljujemo na{' '}
-          <a className="inline-link" href={instagram.href} target="_blank" rel="noopener noreferrer">
-            Instagramu<span className="visually-hidden"> (otvara se u novom prozoru)</span>
-          </a>{' '}
-          i{' '}
-          <a className="inline-link" href={facebook.href} target="_blank" rel="noopener noreferrer">
-            Facebooku<span className="visually-hidden"> (otvara se u novom prozoru)</span>
-          </a>
-          .
-        </p>
+        <div className={styles.head}>
+          <SectionHeading id="detalji-naslov" eyebrow={homeCopy.gallery.eyebrow} title={homeCopy.gallery.title} className={styles.heading} />
+          <p className={styles.lead}>{homeCopy.gallery.lead}</p>
+        </div>
+        <div className={styles.gallery}>
+          <figure className={styles.featured}>
+            <Photo photo={photos.stolSequoia} aspect="4 / 5" sizes="(min-width: 1280px) 650px, (min-width: 768px) 52vw, calc(100vw - 40px)" />
+            <figcaption className={styles.caption}>{photoCaption(photos.stolSequoia)}</figcaption>
+          </figure>
+          <div className={styles.side}>
+            <figure>
+              <Photo photo={photos.kuhinjskePloce} aspect="4 / 5" sizes="(min-width: 1280px) 420px, (min-width: 768px) 34vw, 75vw" />
+              <figcaption className={styles.caption}>{photoCaption(photos.kuhinjskePloce)}</figcaption>
+            </figure>
+            <div className={styles.social}>
+              <p>{homeCopy.gallery.social}</p>
+              <a href={instagram.href} target="_blank" rel="noopener noreferrer">{homeCopy.gallery.link}<ArrowRightIcon size={20} /><span className="visually-hidden"> (novi prozor)</span></a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -7,7 +7,7 @@ import styles from './Salon.module.css';
 
 export function Salon() {
   return (
-    <section className={styles.section} aria-labelledby="salon-naslov">
+    <section id="salon" className={styles.section} aria-labelledby="salon-naslov">
       <div className={`container ${styles.layout}`}>
         <Photo
           photo={photos.salon}

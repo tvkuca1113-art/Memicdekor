@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { InquirySection } from '@/components/InquirySection';
 import { JsonLd } from '@/components/JsonLd';
-import { Categories } from '@/components/home/Categories';
 import { Details } from '@/components/home/Details';
 import { FaqSection } from '@/components/home/FaqSection';
 import { Hero } from '@/components/home/Hero';
@@ -18,10 +17,9 @@ export default function HomePage() {
     <>
       <JsonLd data={localBusinessJsonLd()} />
       <Hero />
-      <Services />
       <Spaces />
-      <Categories />
       <Details />
+      <Services />
       <Salon />
       <FaqSection />
       <InquirySection />

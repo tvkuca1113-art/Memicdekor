@@ -50,11 +50,12 @@ test.describe('raspored na svim širinama', () => {
     const cta = hero.getByRole('link', { name: 'Pošaljite upit' });
     await expect(cta).toBeInViewport({ ratio: 1 });
     const ctaBox = await cta.boundingBox();
-    expect(ctaBox!.height).toBeGreaterThanOrEqual(52);
-    expect(ctaBox!.width).toBeGreaterThanOrEqual(390 - 48);
+    expect(ctaBox!.height).toBeGreaterThanOrEqual(48);
+    expect(ctaBox!.width).toBeGreaterThanOrEqual(160);
+    expect(ctaBox!.width).toBeLessThanOrEqual(240);
     const titleSize = await hero.getByRole('heading', { level: 1 }).evaluate((el) => parseFloat(getComputedStyle(el).fontSize));
-    expect(titleSize).toBeGreaterThanOrEqual(42);
-    expect(titleSize).toBeLessThanOrEqual(48);
+    expect(titleSize).toBeGreaterThanOrEqual(36);
+    expect(titleSize).toBeLessThanOrEqual(42);
     const header = await page.locator('header').first().boundingBox();
     expect(header!.height).toBeGreaterThanOrEqual(64);
     expect(header!.height).toBeLessThanOrEqual(72);
@@ -72,8 +73,8 @@ test.describe('raspored na svim širinama', () => {
     expect(header!.height).toBeLessThanOrEqual(88);
     const hero = page.locator('section[aria-labelledby="naslov"]');
     const heroBox = await hero.boundingBox();
-    expect(heroBox!.height).toBeGreaterThanOrEqual(580);
-    expect(heroBox!.height).toBeLessThanOrEqual(720);
+    expect(heroBox!.height).toBeGreaterThanOrEqual(720);
+    expect(heroBox!.height).toBeLessThanOrEqual(900);
     const titleSize = await hero.getByRole('heading', { level: 1 }).evaluate((el) => parseFloat(getComputedStyle(el).fontSize));
     expect(titleSize).toBeGreaterThanOrEqual(64);
     expect(titleSize).toBeLessThanOrEqual(88);
