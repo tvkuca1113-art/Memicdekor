@@ -76,7 +76,7 @@ export function SiteFooter() {
           <p>
             © {year} {company.legalName}, {company.address.city}
           </p>
-          <p>Fotografije kuhinja na naslovnoj stranici su ilustrativni prikazi.</p>
+          <p>Uvodna fotografija kuhinje je ilustrativni prikaz.</p>
         </div>
       </div>
     </footer>
