@@ -33,7 +33,7 @@ export type CatalogSection = {
   title: string;
   intro: string;
   /** Originalna fotografija Memić Dekora koja vizuelno objašnjava kategoriju. */
-  photo: PhotoKey;
+  photo?: PhotoKey;
   items?: CatalogItem[];
   /** Proizvodi iz ranijeg kataloga na memic.ba, zadržani radi kontinuiteta. */
   legacyProducts?: { name: string; note: string }[];
@@ -43,6 +43,13 @@ export type CustomItem = {
   id: string;
   title: string;
   text: string;
+};
+
+export type ProductHighlight = {
+  title: string;
+  eyebrow: string;
+  text: string;
+  photo: PhotoKey;
 };
 
 export const offerFocus =
@@ -117,7 +124,6 @@ export const catalogSections: CatalogSection[] = [
   {
     id: 'bazenska-keramika',
     title: 'Bazenska keramika i mozaici',
-    photo: 'salon',
     intro:
       'Mozaik nudimo u plavim, bež i narandžastim tonovima, a bazensku keramiku u plavim i zelenim nijansama. Mozaike slažemo i po vašem izboru boja.',
   },
@@ -143,6 +149,27 @@ export const catalogSections: CatalogSection[] = [
     photo: 'sanitarije',
     intro: 'Sanitarije za kupatilo, uključujući WC šolje. Za dostupne modele pošaljite upit ili nas posjetite u salonu.',
     legacyProducts: [{ name: 'B2351MC', note: 'WC šolja iz ranijeg kataloga' }],
+  },
+];
+
+export const productHighlights: ProductHighlight[] = [
+  {
+    title: 'Pietra Antica Crema',
+    eyebrow: 'Primjer iz realizacije',
+    text: 'Keramika je na ovoj realizaciji korištena za radnu ploču, zidnu oblogu i ostrvo. Fotografija potvrđuje naziv materijala, ali ne i trenutnu zalihu.',
+    photo: 'kuhinjaCrema',
+  },
+  {
+    title: 'Marble Sequoia',
+    eyebrow: 'Keramička obloga',
+    text: 'Dekor Marble Sequoia korišten je za oblaganje stola i komode. Keramičke obloge su rad Memić Dekora, dok je konstrukcija navedena kao rad partnera Modimex.',
+    photo: 'komodaSequoia',
+  },
+  {
+    title: 'Grigio Luna',
+    eyebrow: 'Gotov proizvod',
+    text: 'Postolje za umivaonik izrađeno od keramike Grigio Luna. Fotografija je preuzeta s memic.ba; za aktuelnu dostupnost materijala potrebno je kontaktirati salon.',
+    photo: 'postolje',
   },
 ];
 
