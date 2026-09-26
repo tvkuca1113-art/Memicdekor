@@ -7,6 +7,7 @@ import { Hero } from '@/components/home/Hero';
 import { Salon } from '@/components/home/Salon';
 import { Services } from '@/components/home/Services';
 import { Spaces } from '@/components/home/Spaces';
+import { Process } from '@/components/home/Process';
 import { localBusinessJsonLd } from '@/lib/jsonld';
 import { pageMetadata } from '@/lib/seo';
 
@@ -20,6 +21,7 @@ export default function HomePage() {
       <Spaces />
       <Details />
       <Services />
+      <Process />
       <Salon />
       <FaqSection />
       <InquirySection />

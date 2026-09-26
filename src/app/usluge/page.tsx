@@ -22,7 +22,7 @@ export default function ServicesPage() {
         id="rezanje-dijamantnim-alatom"
         eyebrow="Rezanje keramike"
         title="Rezanje dijamantnim alatom"
-        photo={photos.postolje}
+        photo={photos.gazista}
       >
         <p>
           Precizno rezanje keramičkih ploča na dimenzije iz vašeg projekta: za pločice, mozaike, gazišta, okapnice i

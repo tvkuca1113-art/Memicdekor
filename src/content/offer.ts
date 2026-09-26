@@ -51,7 +51,7 @@ export const spaces: Space[] = [
     id: 'kuhinja',
     photo: 'kuhinjaCrema',
     title: 'Kuhinja',
-    text: 'Keramičke kuhinjske ploče i stolovi izrađeni po mjeri, te pločice i veliki formati za zid i pod.',
+    text: 'Keramičke kuhinjske ploče i stolovi izrađeni po mjeri te pločice i veliki formati za zid i pod.',
     links: [
       { label: 'Kuhinjske ploče i stolovi', href: '/proizvodnja/#kuhinjske-ploce-i-stolovi' },
       { label: 'Pločice i veliki formati', href: '/proizvodi/#keramicke-plocice' },
@@ -154,7 +154,7 @@ export const customItems: CustomItem[] = [
   {
     id: 'gazista-i-okapnice',
     title: 'Gazišta i okapnice',
-    text: 'Keramička gazišta za stepenice i okapnice, izrezani na tražene dimenzije.',
+    text: 'Gazišta za stepenice i okapnice od keramike režemo na tražene dimenzije.',
   },
   {
     id: 'mozaici',

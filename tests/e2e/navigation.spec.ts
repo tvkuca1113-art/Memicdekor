@@ -113,7 +113,7 @@ test('izbor prostora mijenja fotografiju i relevantne linkove, uključujući tas
   await expect(tabs.getByRole('tab', { name: /Kuhinja/ })).toHaveAttribute('aria-selected', 'true');
   await expect(panel.getByRole('img')).toHaveAttribute('alt', /Pietra Antica Crema/);
   await tabs.getByRole('tab', { name: /Kupatilo/ }).click();
-  await expect(panel.getByRole('img')).toHaveAttribute('alt', /umivaonici/i);
+  await expect(panel.getByRole('img')).toHaveAttribute('alt', /umivaoni[ck]/i);
   await expect(panel.getByRole('link', { name: 'Umivaonici po mjeri' })).toHaveAttribute('href', '/proizvodnja/#umivaonici-i-postolja');
   await page.keyboard.press('ArrowRight');
   await expect(tabs.getByRole('tab', { name: /Dnevni boravak/ })).toBeFocused();

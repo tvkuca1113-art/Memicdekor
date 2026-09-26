@@ -1,50 +1,38 @@
-# Provjera dizajna — Memić Dekor, 26. septembar 2026.
+# Provjera dizajna — usluge i radovi Memić Dekora
 
-final result: passed
+final result: blocked
 
-## Cilj i dokazi
+Lokalna provjera završena je uspješno. Preostala je provjera ove izvedbe nakon javne objave. Prethodna završena provjera uvodne fotografije sačuvana je u `docs/qa/uvod-2026-09-26.md`.
 
-Korisnik je odabrao istu kuhinjsku scenu kao jedinstvenu pozadinu i tražio kompaktniji tekst. Vizuelna smjernica: `docs/design/puna-pozadina-smjernica.jpg` (390 × 998 px, normalizovano iz generisanog prikaza). Implementacija: `docs/screenshots/pocetna-390x844.jpg`, `pocetna-1440x900.jpg` i cijele stranice u istom direktoriju. Stanje: početna na vrhu, meni zatvoren, odabrana kuhinja.
+## Opseg i smjernica
 
-## Iteracije
+Korisnik traži jasniju i zanimljiviju prezentaciju usluga i stvarnih radova uz postojeću neprekinutu uvodnu fotografiju. Odabrani smjer je ista tipografija i paleta, veće izvorne fotografije, izbor radova po kategorijama i direktan upit za odabrani primjer. Ovo je promjena strukture prema stvarnom sadržaju, a ne kopiranje rasporeda referentne stranice.
 
-1. [P1] Postojeći portretni kadar 4:5 je pri pokrivanju ekrana 390 × 844 odsijecao slavinu. Dokaz: prva zajednička usporedba `docs/design/poredjenje-mobitel.jpg`. Popravka: zaseban vertikalni kadar iste ilustracije 9:19,5, dok je desktop zadržan.
-2. [P2] Na 320 × 700 opis preko fotografije nije dostizao 4,5:1 (izmjereno 4,09). Popravka: sjenčenje na uskom ekranu.
-3. [P2] Novi kadar je na 390 × 844 pomjerio svijetlu površinu iza natpisa „Studio keramike · Mostar” (3,07:1). Popravka: lokalni sloj ispod donjeg lijevog teksta; gornji dio fotografije i desni rub ostaju otvoreni. Popravka potvrđena u završnoj zajedničkoj usporedbi i ponovljenim testovima na šest širina. Na 390 × 844 izmjeren je 2. percentil kontrasta 5,63:1 za natpis i 8,51:1 za naslov; to nije tvrdnja da svaki pojedini piksel ima isti kontrast.
+Izvori i odluke: `docs/PREZENTACIJA-USLUGA-2026-09-26.md`. Početno stanje: `docs/research/usluge-v2/01-prije.png`. Završne lokalne površine: `docs/screenshots/prezentacija-v2/`, pri 390 × 844 i 1440 × 900 px. Snimci pojedinačnih sekcija obuhvataju cijelu sekciju; dijalozi i uvod su snimci vidljivog ekrana. Snimljeno pri gustoći 2 i svedeno na CSS širinu.
 
-## Pregled površina
+## Nalazi i popravke
 
-- Tipografija: DM Serif Display / Manrope, naslov smanjen na 39,39 px na 390 px. Prijelom u dva reda umjesto tri je namjeran: korisnik traži da tekst manje zaklanja fotografiju. Desktop 73,44 px.
-- Raspored: jedna fotografija pokriva uvod i zaglavlje. CTA je kompaktan, najmanje 48 px visok. Navigacija kroz sadržaj ostaje vidljiva pri dnu uvoda. Hero je prilagođen visini stvarnog viewporta, a ne rasterizovan na dimenzije makete.
-- Boje: postojeća plava brenda, topla svijetla podloga, tamna sekcija usluga. Završna provjera kontrasta prošla je na šest veličina ekrana.
-- Slike: stvarni originali za ponudu, projekte i salon; ilustracija uvoda jasno označena. Nema zamjenskih nacrtanih slika ili novog loga.
-- Sadržaj: bosanski pravopis, izvorni kontakti; u galeriji zasluge partneru bez pogrešnog označavanja kao fotografa. Bez izmišljenih recenzija, statistika ili nagrada.
+1. [P1, riješeno] Fotografija gotovog umivaonika uz rezanje nije objašnjavala predmet usluge. Zamijenjena je izvornim gazištima uz izričit natpis da je riječ o gotovoj izradi. Digitalni print ima motiv Starog mosta; water jet ima izvornu fotografiju postupka.
+2. [P1, riješeno] Mala galerija bez opisa nije jasno razdvajala Memićev doprinos od ostatka interijera. Sada šest radova ima opis obima izrade, provjerene detalje, odgovarajuće zasluge i link na izvornu objavu.
+3. [P2, riješeno] Korisnik je nakon odabira rada morao sam ponoviti kontekst u formi. Novi CTA prenosi naziv rada i vrstu prostora u promjenjivu poruku, uz provjeru dozvoljenih identifikatora na serveru.
+4. [P2, riješeno] Dug opis projekta na mobitelu mogao je udaljiti dugme za zatvaranje. Dugme sada ostaje pri vrhu dijaloga i nakon skrolanja. Tastatura, Escape i povratak fokusa provjereni su.
+5. [P2, riješeno] Kvadratni desktop kadar nepotrebno je povećavao i odsijecao izvornu fotografiju digitalnog printa. Usluge koriste 4:3 kadar; fotografija i tekst pregledani su ponovo.
+6. Snimanje cijele sekcije u prvom pokušaju postavilo je fiksno zaglavlje usred izvezene slike. Ovo je bio artefakt snimanja, ne položaj zaglavlja pri normalnom korištenju. Završni snimci izdvojeni su iz preglednikovog snimka cijele stranice pri vrhu.
+
+## Vizuelni i jezički pregled
+
+- Jedinstvena uvodna scena, logo, boje i fontovi zadržani su. Poveznica „Naši radovi” vodi direktno na novu galeriju.
+- Slike, natpisi, naslovi, praznine, CTA i oštrina pregledani su na desktop i mobilnim snimcima. Originali ostaju neizmijenjeni osim optimizacije veličine; uvećani pregled prikazuje cijelu fotografiju.
+- Umivaonici, stol, komoda, kuhinjske keramičke površine i zidna obloga odgovaraju svojim opisima. Drvena radna ploča u projektu zidne obloge nije predstavljena kao keramika.
+- Mobilni prikaz usluga otvara opis i sliku unutar odabrane stavke. Desktop prikazuje fotografiju pored izbora. Galerija ima tri, dvije ili jednu kolonu prema raspoloživoj širini.
+- Pregledani su bosanski pravopis i ijekavica. Ispravljeni su zarez prije „te” i formulacija o gazištima i okapnicama. Kontakti su usklađeni s originalnom stranicom.
 
 ## Funkcionalni dokazi
 
-Provjereni su izbor prostora mišem i tastaturom, meni, CTA, sidra, FAQ, telefonski i e-mail linkovi. Testovi forme koriste lokalni servis; stvarna dostava nije testirana. Provjera na 320–1920 px uključuje prelijevanje i uvećanje teksta 200 %. npm run check: 52 testa, TypeScript i ESLint uspješni. Produkcijska izvedba uspješna. Playwright: 71 test uspješan, pa dodatnih 6 provjera kontrasta nakon ublažavanja prijelaza sjenčenja.
+TypeScript i ESLint: uspješni. Unit testovi: 52 uspješna. Produkcijska izvedba: uspješna. Playwright: 76 uspješnih testova. Nakon završnog 4:3 kadra: dodatnih 19 uspješnih ciljanih provjera rasporeda i novih interakcija.
 
-## Kontrolna lista
+Obuhvaćeni su filteri, promjene slika, zatvaranje i fokus dijaloga, predpopunjavanje forme, izbor usluge, relevantni linkovi, navigacija, prikaz pri 320–1920 px, tekst uvećan 200 %, pristupačnost provjerenih stanja i postojeće SEO provjere. Stvarna poruka nije poslana; testovi forme koriste lokalni servis.
 
-- Mjerenje kontrasta i završna zajednička usporedba: završeni.
-- Fokusirani pregled loga, naslova, dugmadi i fotografske oštrine na istom prikazu: završen.
-- Raspored pri 390 × 844 i 1440 × 900, meni i sekcije: provjereni.
-- Objava i provjera u cloud pregledniku: završene na javnoj stranici, bez preostalih P0/P1/P2 nalaza.
+## Javna objava
 
-## Namjerna odstupanja i gustoća
-
-Snimci su napravljeni u pregledniku pri deviceScaleFactor 2, zatim smanjeni na CSS širinu. Izvorni mockup 784 × 2008 px normalizovan je na 390 × 998 px. Usporedba stavlja izvor i prvih 998 px stvarne stranice jedan pored drugog. Stvarni mobilni viewport je 390 × 844: uvod ispunjava tu visinu, pa sljedeća sekcija dolazi niže nego na maketi. Kompaktni naslov u dva reda, veći dodirni ciljevi i izvorni logo su namjerni funkcionalni izbori prema korisnikovom zahtjevu. Gornji dio kadra ostaje otvoren, slavina vidljiva i fotografija neprekinuta. Nema preostalih vizuelnih P0/P1/P2 nalaza nakon lokalne provjere. Subjektivna potvrda estetskog smjera ostaje korisniku.
-
-## Provjera objavljene stranice
-
-URL: https://memicdekor.vercel.app/
-
-Objavljena implementacija: `dfab3038c237917571192ad3fa10f2694695dd46`; Vercel status SUCCESS. Provjereno u cloud pregledniku pri 1363 × 936 px. Dokaz: `docs/screenshots/objavljena-pocetna.jpg`.
-
-- Uvodna fotografija učitana je i neprekinuto pokriva cijeli uvod iza zaglavlja; horizontalno prelijevanje nije prisutno.
-- Klik na „Kupatilo” promijenio je odabranu karticu, fotografiju umivaonika, opis i povezane stranice. Strelica udesno zatim je odabrala „Dnevni boravak” i fotografiju stolića.
-- „Pošaljite upit” otvorio je `/#upit`. Vrh sekcije bio je na 100,28 px, ispod donjeg ruba zaglavlja na 85 px.
-- U pregledanim zapisima konzole nema greške aplikacije. Prisutni su raniji zapisi ekstenzije preglednika s izvorom `chrome-extension://…`, nevezani za aplikaciju.
-- Stvarna poruka putem kontakt forme nije poslana. Njeno ponašanje provjereno je lokalnim automatizovanim testovima navedenim iznad.
-
-Završena je provjera lokalne izvedbe i javne objave. Ovaj rezultat ne predstavlja garanciju svih mogućih uređaja niti formalnu potvrdu potpune WCAG usklađenosti.
+Čeka se provjera nove izvedbe na https://memicdekor.vercel.app/ prije označavanja konačnog rezultata kao uspješnog.

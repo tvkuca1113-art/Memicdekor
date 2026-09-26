@@ -15,6 +15,22 @@
     "source": "https://www.instagram.com/memicdekor_/p/DIie35LsyGg/",
     "addedAt": "2026-09-25T21:48:13.617Z"
   },
+  "gazista-salon": {
+    "src": "/images/originali/gazista-salon.jpg",
+    "width": 1921,
+    "height": 2048,
+    "sha256": "31d88dca0f4c9a22ce86ec5446b93a1dbeded952ad65fab2c683b9b1c258cc1f",
+    "source": "https://memic.ba/proizvodnja/",
+    "addedAt": "2026-09-26T01:31:30.549Z"
+  },
+  "komoda-sequoia": {
+    "src": "/images/originali/komoda-sequoia.jpg",
+    "width": 1040,
+    "height": 1372,
+    "sha256": "37db68f431d276801e3fb4148665ae1d12081642cda902876006365d865f92d4",
+    "source": "https://www.instagram.com/memicdekor_/p/DdqY9KljAhQ/",
+    "addedAt": "2026-09-26T01:33:27.964Z"
+  },
   "kuhinja-crema": {
     "src": "/images/originali/kuhinja-crema.jpg",
     "width": 1200,
@@ -79,6 +95,14 @@
     "source": "https://www.instagram.com/memicdekor_/p/DIcLIB1spZM/",
     "addedAt": "2026-09-25T21:48:12.444Z"
   },
+  "umivaonici-detalj": {
+    "src": "/images/originali/umivaonici-detalj.jpg",
+    "width": 1080,
+    "height": 1350,
+    "sha256": "0841ca33f73bd5cfe334fe472a0e287a28a885df94b11a7a8717fb7ac7587c00",
+    "source": "https://www.instagram.com/memicdekor_/p/DIcLIB1spZM/",
+    "addedAt": "2026-09-26T01:33:27.489Z"
+  },
   "water-jet": {
     "src": "/images/originali/water-jet.jpg",
     "width": 1024,
@@ -86,5 +110,13 @@
     "sha256": "d68e6321e2238d5b3069b972dc0f461c70e47cdb05cde31372545f9d5cb21c9e",
     "source": "https://memic.ba/wp-content/uploads/2024/12/slika-2-1-1024x577.jpg",
     "addedAt": "2026-09-25T21:48:09.190Z"
+  },
+  "zidna-obloga-xxl": {
+    "src": "/images/originali/zidna-obloga-xxl.jpg",
+    "width": 1440,
+    "height": 1440,
+    "sha256": "056d1c2a7308c5363da410671d1d37ef7bc4d15830d6268f3c89d9ad757495cf",
+    "source": "https://www.instagram.com/memicdekor_/p/DRt7dGXjFdv/",
+    "addedAt": "2026-09-26T01:31:31.027Z"
   }
 }

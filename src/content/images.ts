@@ -59,6 +59,29 @@ export const heroPhotos = {
 };
 
 export const photos = {
+  gazista: originalPhoto({
+    id: 'gazista-salon',
+    alt: 'Siva keramička gazišta sa završnim rubovima, izložena u salonu Memić Dekor',
+    caption: 'Primjer izrade: keramička gazišta u našem salonu.',
+    focus: '50% 60%',
+  }),
+  zidnaObloga: originalPhoto({
+    id: 'zidna-obloga-xxl',
+    alt: 'Zidna obloga od keramike velikog formata u kuhinji s drvenom radnom pločom',
+    caption: 'Keramička zidna obloga izrezana prema mjerama kuhinje.',
+    credit: 'Memić Dekor · partner u objavi: Modimex',
+  }),
+  umivaoniciDetalj: originalPhoto({
+    id: 'umivaonici-detalj',
+    alt: 'Dva keramička umivaonika po mjeri, sa zlatnim slavinama i ogledalima',
+    caption: 'Dva umivaonika izrađena po mjeri prostora.',
+  }),
+  komodaSequoia: originalPhoto({
+    id: 'komoda-sequoia',
+    alt: 'Komoda obložena keramikom Marble Sequoia, sa staklenim vratima u sredini',
+    caption: 'Komoda obložena keramikom Marble Sequoia.',
+    credit: 'Memić Dekor · konstrukcija Modimex',
+  }),
   postolje: originalPhoto({
     id: 'postolje-grigio-luna',
     alt: 'Postolje za umivaonik izrađeno od keramike Grigio Luna',
@@ -84,8 +107,8 @@ export const photos = {
   }),
   umivaonici: originalPhoto({
     id: 'umivaonici',
-    alt: 'Keramički umivaonici iz ponude Memić Dekor',
-    caption: 'Umivaonici',
+    alt: 'Detalj keramičkih umivaonika izrađenih po mjeri, sa zlatnim slavinama',
+    caption: 'Keramički umivaonici po mjeri.',
   }),
   kuhinjskePloce: originalPhoto({
     id: 'kuhinjske-ploce',

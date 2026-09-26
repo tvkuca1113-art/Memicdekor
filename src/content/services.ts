@@ -11,16 +11,20 @@ export type Service = {
   href: string;
   linkLabel: string;
   photo: PhotoKey;
+  applications: string[];
+  imageNote: string;
 };
 
 export const services: Service[] = [
   {
     id: 'rezanje-keramike',
     title: 'Rezanje keramike',
-    summary: 'Precizno rezanje keramičkih ploča dijamantnim alatom, na mjere iz vašeg projekta.',
+    summary: 'Keramičke ploče režemo dijamantnim alatom prema potrebnim dimenzijama. Od velikog formata do završnog ruba, obrada prati vaš projekt.',
     href: '/usluge/#rezanje-dijamantnim-alatom',
     linkLabel: 'o rezanju keramike',
-    photo: 'postolje',
+    photo: 'gazista',
+    applications: ['Pločice i mozaici', 'Gazišta i okapnice', 'Površine po mjeri'],
+    imageNote: 'Primjer gotove izrade: keramička gazišta u našem salonu.',
   },
   {
     id: 'digitalni-print',
@@ -29,6 +33,8 @@ export const services: Service[] = [
     href: '/digital-print/',
     linkLabel: 'o digitalnom printu',
     photo: 'digitalniPrint',
+    applications: ['Fotografije i panorame', 'Dekorativni motivi', 'Zidne kompozicije'],
+    imageNote: 'Primjer digitalnog printa: motiv Starog mosta na keramici.',
   },
   {
     id: 'water-jet',
@@ -37,5 +43,7 @@ export const services: Service[] = [
     href: '/water-jet/',
     linkLabel: 'o rezanju vodenim mlazom',
     photo: 'waterJet',
+    applications: ['Složeni oblici i otvori', 'Keramika, kamen i staklo', 'Rezanje željeza'],
+    imageNote: 'Prikaz rezanja vodenim mlazom s originalne stranice Memić Dekora.',
   },
 ];

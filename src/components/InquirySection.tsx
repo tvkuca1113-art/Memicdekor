@@ -1,5 +1,5 @@
 import { company, formattedAddress } from '@/content/site';
-import { ContactForm } from './ContactForm';
+import { ContactForm, type InquiryPrefill } from './ContactForm';
 import { SectionHeading } from './SectionHeading';
 import { MailIcon, MapPinIcon, PhoneIcon } from './icons';
 import styles from './InquirySection.module.css';
@@ -7,9 +7,10 @@ import styles from './InquirySection.module.css';
 type InquirySectionProps = {
   eyebrow?: string;
   title?: string;
+  initialInquiry?: InquiryPrefill;
 };
 
-export function InquirySection({ eyebrow = 'Upit', title = 'Recite nam šta uređujete.' }: InquirySectionProps) {
+export function InquirySection({ eyebrow = 'Upit', title = 'Recite nam šta uređujete.', initialInquiry }: InquirySectionProps) {
   return (
     <section id="upit" className={styles.section} aria-labelledby="upit-naslov">
       <div className={`container ${styles.layout}`}>
@@ -47,7 +48,7 @@ export function InquirySection({ eyebrow = 'Upit', title = 'Recite nam šta ure�
           </ul>
         </div>
         <div className={styles.formWrap}>
-          <ContactForm />
+          <ContactForm initialInquiry={initialInquiry} />
         </div>
       </div>
     </section>

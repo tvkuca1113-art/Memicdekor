@@ -69,7 +69,9 @@ function focusField(form: HTMLFormElement, field: InquiryField | undefined) {
 
 type ClientErrors = { forState: InquiryState; errors: FieldErrors };
 
-export function ContactForm() {
+export type InquiryPrefill = { message: string; space: string };
+
+export function ContactForm({ initialInquiry }: { initialInquiry?: InquiryPrefill }) {
   const [state, formAction, pending] = useActionState(submitInquiry, initialState);
   const [clientErrors, setClientErrors] = useState<ClientErrors | null>(null);
   const [dismissedSuccess, setDismissedSuccess] = useState<InquiryState | null>(null);
@@ -231,7 +233,7 @@ export function ContactForm() {
                 name="space"
                 value={option.value}
                 required
-                defaultChecked={values?.space === option.value}
+                defaultChecked={(values?.space ?? initialInquiry?.space) === option.value}
                 aria-describedby={describedBy(errors.space && fieldId('prostor-greska'))}
               />
               <span>{option.label}</span>
@@ -259,7 +261,7 @@ export function ContactForm() {
           rows={6}
           required
           maxLength={LIMITS.message.max}
-          defaultValue={values?.message}
+          defaultValue={values?.message ?? initialInquiry?.message}
           className={`${styles.input} ${styles.textarea}`}
           aria-invalid={errors.message ? true : undefined}
           aria-describedby={describedBy(fieldId('poruka-opis'), errors.message && fieldId('poruka-greska'))}
