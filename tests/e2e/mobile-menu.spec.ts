@@ -78,4 +78,25 @@ test.describe('mobilni meni', () => {
       expect(box!.height, await targets.nth(i).innerText()).toBeGreaterThanOrEqual(44);
     }
   });
+
+  for (const viewport of [{ width: 320, height: 568 }, { width: 844, height: 390 }]) {
+    test(`zatvaranje i upit ostaju dostupni na ${viewport.width} × ${viewport.height}`, async ({ page }) => {
+      await page.setViewportSize(viewport);
+      await page.goto('/');
+      await page.getByRole('button', { name: 'Otvori meni' }).click();
+      const dialog = page.getByRole('dialog', { name: 'Meni' });
+      const close = dialog.getByRole('button', { name: 'Zatvori meni' });
+      const inquiry = dialog.getByRole('link', { name: 'Pošaljite upit' });
+      await expect(close).toBeInViewport({ ratio: 1 });
+      await expect(inquiry).toBeInViewport({ ratio: 1 });
+      const projects = dialog.getByRole('link', { name: /Pogledajte projekte/ });
+      await projects.scrollIntoViewIfNeeded();
+      await expect(close).toBeInViewport({ ratio: 1 });
+      await expect(inquiry).toBeInViewport({ ratio: 1 });
+      await projects.click();
+      await expect(dialog).toBeHidden();
+      await expect(page).toHaveURL(/\/#radovi$/);
+      await expect(page.locator('#radovi')).toBeInViewport();
+    });
+  }
 });

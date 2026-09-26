@@ -1,10 +1,12 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore, type MouseEvent } from 'react';
 import { company, formattedAddress, mainNav, primaryCta, type NavItem } from '@/content/site';
-import { ArrowRightIcon, CloseIcon, MailIcon, MapPinIcon, MenuIcon, PhoneIcon } from './icons';
+import { menuCopy, menuFeature, menuPrimary, menuSecondary } from '@/content/menu';
+import { ArrowRightIcon, CloseIcon, MapPinIcon, MenuIcon, PhoneIcon } from './icons';
 import { Logo } from './Logo';
 import styles from './SiteHeader.module.css';
 
@@ -148,56 +150,68 @@ export function SiteHeader() {
         <div className={styles.panel}>
           <div className={styles.panelTop}>
             <Logo alt="" className={styles.panelLogo} sizes="172px" loading="lazy" />
-            <button ref={closeRef} type="button" className={styles.closeButton} onClick={closeMenu}>
-              <CloseIcon size={26} />
-              <span className="visually-hidden">Zatvori meni</span>
+            <button ref={closeRef} type="button" className={styles.closeButton} onClick={closeMenu} aria-label={menuCopy.closeLabel}>
+              <span>{menuCopy.close}</span>
+              <CloseIcon size={20} />
             </button>
           </div>
-
-          <nav aria-label="Meni stranice">
-            <ul className={styles.panelList}>
-              {[{ label: 'Početna', href: '/' }, ...mainNav].map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className={styles.panelLink}
-                    aria-current={currentState(pathname, item)}
-                    onClick={closeMenu}
-                  >
-                    {item.label}
-                    <ArrowRightIcon size={20} className={styles.panelArrow} />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          <Link href={primaryCta.href} className={`btn ${styles.panelCta}`} onClick={closeMenu}>
-            {primaryCta.label}
-            <ArrowRightIcon className="btn-icon" size={20} />
-          </Link>
-
-          <ul className={styles.panelContact}>
-            <li>
-              <a href={company.phone.href}>
-                <PhoneIcon size={18} />
-                {company.phone.display}
+          <div className={styles.panelBody}>
+            <nav aria-label="Meni stranice" className={styles.panelNav}>
+              <p className={styles.panelEyebrow}>{menuCopy.explore}</p>
+              <ul className={styles.panelList}>
+                {menuPrimary.map((item) => (
+                  <li key={item.href}>
+                    <Link href={item.href} className={styles.panelLink} aria-label={item.label}
+                      aria-current={currentState(pathname, item)} onClick={closeMenu}>
+                      <span>
+                        <span className={styles.panelLinkTitle}>{item.label}</span>
+                        <span className={styles.panelDescription}>{item.description}</span>
+                      </span>
+                      <ArrowRightIcon size={20} className={styles.panelArrow} />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <ul className={styles.secondaryList}>
+                {menuSecondary.map((item) => (
+                  <li key={item.href}>
+                    <Link href={item.href} aria-current={currentState(pathname, item)} onClick={closeMenu}>{item.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <div className={styles.panelAside}>
+              <Link href={menuFeature.href} className={styles.feature} onClick={closeMenu}>
+                <span className={styles.featureImage}>
+                  {menuOpen && menuFeature.photo.file ? (
+                    <Image src={menuFeature.photo.file.src} alt="" fill
+                      sizes="(min-width: 700px) 320px, 110px" loading="lazy"
+                      style={{ objectFit: 'cover', objectPosition: menuFeature.photo.focus }} />
+                  ) : null}
+                </span>
+                <span className={styles.featureCopy}>
+                  <span className={styles.featureEyebrow}>{menuFeature.eyebrow}</span>
+                  <span className={styles.featureTitle}>{menuFeature.title}</span>
+                  <span className={styles.featureAction}>{menuFeature.action}<ArrowRightIcon size={16} /></span>
+                </span>
+              </Link>
+              <a href={company.mapUrl} className={styles.panelAddress} target="_blank" rel="noopener noreferrer">
+                <MapPinIcon size={16} />
+                <span><strong>{menuCopy.location}</strong><span>{formattedAddress}</span></span>
+                <span className="visually-hidden">{menuCopy.mapHint}</span>
               </a>
-            </li>
-            <li>
-              <a href={company.email.href}>
-                <MailIcon size={18} />
-                {company.email.display}
-              </a>
-            </li>
-            <li>
-              <a href={company.mapUrl} target="_blank" rel="noopener noreferrer">
-                <MapPinIcon size={18} />
-                {formattedAddress}
-                <span className="visually-hidden"> (otvara Google karte u novom prozoru)</span>
-              </a>
-            </li>
-          </ul>
+            </div>
+          </div>
+          <div className={styles.panelBottom}>
+            <Link href={primaryCta.href} className={`btn ${styles.panelCta}`} onClick={closeMenu}>
+              {primaryCta.label}
+              <ArrowRightIcon className="btn-icon" size={20} />
+            </Link>
+            <div className={styles.panelContact}>
+              <a href={company.phone.href}><PhoneIcon size={15} />{company.phone.display}</a>
+              <a href={company.email.href}>{company.email.display}</a>
+            </div>
+          </div>
         </div>
       </dialog>
     </header>
