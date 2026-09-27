@@ -67,7 +67,6 @@ export function Hero() {
             <ArrowRightIcon className={`btn-icon ${styles.secondaryIcon}`} size={20} />
           </Link>
         </div>
-        <p className={styles.note}>{heroPhotos.note}</p>
       </div>
       <nav className={`container ${styles.shortcuts}`} aria-label="Istražite Memić Dekor">
         {homeCopy.hero.links.map((link, index) => (
